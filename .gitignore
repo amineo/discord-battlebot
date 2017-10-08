@@ -1,0 +1,10 @@
+/node_modules
+/qstat/autom4te.cache
+/qstat/T2phpstats
+/qstat/tests
+
+.vscode
+.DS_Store
+*.log
+dev.sh
+test.js
