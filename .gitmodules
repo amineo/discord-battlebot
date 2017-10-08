@@ -1,0 +1,3 @@
+[submodule "qstat"]
+	path = qstat
+	url = git@github.com:amineo/qstat.git
