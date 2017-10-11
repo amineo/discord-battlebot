@@ -39,7 +39,7 @@ exports.run = (client, message, args, config) => {
         },            
         {
           "name": "midair",
-          "value": "Display a summary of only populated MidAir servers"
+          "value": "Display a summary of only populated Midair servers"
         }      
       ]
     }

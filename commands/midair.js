@@ -9,7 +9,7 @@ exports.run = (client, message, args, config) => {
 
         let discordMsg = {
             "embed": {
-              "title": "Populated MidAir Servers",
+              "title": "Populated Midair Servers",
               "color": 8615418,
               "timestamp": lookupDate.toISOString()
             }
