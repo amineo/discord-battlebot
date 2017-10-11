@@ -4,13 +4,21 @@
   "description": "A friendly little bot that querys game server stats",
   "main": "battlebot.js",
   "engines": {
-    "node": "6.10.0"
+    "node": "8.6.0"
   },
   "scripts": {
     "preinstall": "cd qstat && ./autogen.sh",
     "install": "cd qstat && ./configure && make",
     "start": "node battlebot.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amineo/discord-battlebot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/amineo/discord-battlebot/issues"
+  },
+  "homepage": "https://github.com/amineo/discord-battlebot#readme",
   "keywords": [
     "qstat",
     "discord",
