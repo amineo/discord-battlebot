@@ -56,14 +56,12 @@ exports.run = (client, message, args, config) => {
       };
   
       serverInfo.forEach(function (server) {
-        if(server.players !== 0){
             let objServer = {
                 "name": `${server.name}`,
-                "value": `(${server.numplayers} / ${server.maxplayers}) ${server.map}`,
+                "value": `(${server.numplayers} / ${server.maxplayers}) ${server.map} - *${server.rules.mission}*`,
                 "inline": false
             }
             discordTable.push(objServer);
-        }
       });
   
       discordMsg["embed"]["fields"] = discordTable;
