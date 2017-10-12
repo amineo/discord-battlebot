@@ -36,7 +36,7 @@ client.on("message", message => {
 
   // Define command args
   const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
-  const command = args.shift().toLowerCase();
+  const command = args.shift().toLowerCase().replace(/[^a-zA-Z0-9 !?]+/g,'');
 
   try {
     let commandFile;
