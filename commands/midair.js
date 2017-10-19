@@ -22,7 +22,7 @@ exports.run = (client, message, args, config) => {
             if(server.players !== 0){
                 let objServer = {
                     "name": `${server.name}`,
-                    "value": `(${server.players} / ${server.max_players}) ${server.map}`,
+                    "value": `**[JOIN](steam://connect/${server.addr})**    (${server.players} / ${server.max_players}) ${server.map}`,
                     "inline": false
                 }
                 discordTable.push(objServer);
