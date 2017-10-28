@@ -2,6 +2,25 @@
 
 ---
 
+## 0.6.0
+*10/27/2017*
+
+- The help command is now auto documented.
+- The `taco` command has been disabled. RIP TacoStand server.
+- Refactor codebase. Heavily inspired by the [AnIdiotsGuide](https://github.com/An-Idiots-Guide/guidebot)'s bot framework.
+
+
+**New Command(s)** 
+
+- `!battlebot stats` Display the health of BattleBot
+
+
+**Enhancements** 
+
+- Introduce command aliases. For example, `!battlebot lak` will yield the same results as `!battlebot slp`
+
+---
+
 ## 0.5.1
 *10/19/2017*
 
@@ -10,7 +29,6 @@
 - `!battlebot midair` *Midair server list*, now displays a link to join a server listed. *Currently, the steam://connect protocol is not supported so it will just fire-up Midair for you*
 
 ---
-
 ## 0.5.0
 *10/13/2017*
 

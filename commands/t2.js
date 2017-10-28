@@ -2,7 +2,7 @@ const { execFile } = require('child_process');
 const QStatQuery = require('../modules/Query.js');
 
 
-exports.run = (client, message, args, config) => {
+exports.run = async (client, message, args) => {
 
   let serverInfo = [],
       discordTable = [];
@@ -22,7 +22,7 @@ exports.run = (client, message, args, config) => {
   
 
   function* syncQueries(){
-    for (var server of config.t2ServerList) {
+    for (var server of client.config.t2ServerList) {
       yield queryServer(server);
     }
     let lookupDate = new Date();
@@ -44,7 +44,7 @@ exports.run = (client, message, args, config) => {
 
   
   // T2 Server List Query Output
-  const T2QueryOutput = function(){
+  const T2QueryOutput = await function(){
   
       let lookupDate = new Date();
       let discordMsg = {
@@ -68,10 +68,24 @@ exports.run = (client, message, args, config) => {
       
       message.channel.send(discordMsg).then(function(botmessage){
         // cleanup messages after 5 minutes
-        message.delete(config.messageDeleteTimer.command);
-        botmessage.delete(config.messageDeleteTimer.bot);
+        message.delete(client.config.messageDeleteTimer.command);
+        botmessage.delete(client.config.messageDeleteTimer.bot);
       });
   
   };
 
+};
+
+
+exports.conf = {
+  enabled: true,
+  aliases: []
+};
+
+
+
+exports.help = {
+  name: "t2",
+  description: "Display the server populations for LAK, SCP & Taco",
+  usage: "t2"
 };

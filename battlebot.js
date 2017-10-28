@@ -7,64 +7,50 @@
  * file that was distributed with this source code.
 */
  
-const fs = require("fs");
-const package = require("./package.json");
-const config = require("./config.json");
-const Discord = require("discord.js");
+const { promisify } = require('util');
+const readdir = promisify(require('fs').readdir);
+const loki = require('lokijs');
+
+const Discord = require('discord.js');
 const client = new Discord.Client();
+client.config = require('./config.js');
+require('./modules/utils.js')(client);
+
+
+// Setup our loki collections
+var db = new loki('loki.json');
+client.commands = db.addCollection('commands');
+client.aliases = db.addCollection('aliases');
 
 
 
+const init = async () => {
 
-fs.readdir("./events/", (err, files) => {
-  if (err) return console.error(err);
-  files.forEach(file => {
-    let eventFunction = require(`./events/${file}`);
-    let eventName = file.split(".")[0];
-    client.on(eventName, (...args) => eventFunction.run(client, ...args));
+  // Load our commands
+  const cmdFiles = await readdir("./commands/");
+  client.log("log", `Loading a total of ${cmdFiles.length} commands.`);
+  cmdFiles.forEach(file => {
+    if (!file.endsWith(".js")) return;
+    const response = client.loadCommand(file);
+    if (response) console.log(response);
   });
-});
 
 
 
+  // Load our event handlers
+  const evtFiles = await readdir("./events/");
+  client.log("log", `Loading a total of ${evtFiles.length} events.`);
 
-client.on("message", message => {
-
-
-  if (message.author.bot) return;
-  if( message.content.indexOf(config.prefix) !== 0) return;
-
-  // Define command args
-  const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
-  const command = args.shift().toLowerCase().replace(/[^a-zA-Z0-9 !?]+/g,'');
-
-  try {
-    let commandFile;
-    if(message.content == config.prefix){
-      // The !battlebot default command
-      commandFile = require(`./commands/t2.js`);
-    }else{
-      commandFile = require(`./commands/${command}.js`);
-    }
-
-    commandFile.run(client, message, args, config);
-  } catch (err) {
-    console.error(err);
-    // fall back to help if command is not valid
-    let injectArgs = args;
-    injectArgs.push(`${config.prefix} ${command}`);
-    let commandFile = require(`./commands/help.js`);
-    commandFile.run(client, message, injectArgs, config);
-  }
-});
+  evtFiles.forEach(file => {
+    const eventName = file.split(".")[0];
+    const event = require(`./events/${file}`);
+    client.on(eventName, event.bind(null, client));
+    delete require.cache[require.resolve(`./events/${file}`)];
+  });
 
 
 
-
-
-client.on("ready", () => {
-  console.log(`BattleBot started! v${package.version}`);
-  client.user.setGame(`${config.prefix} help`)
-});
-
-client.login(process.env.DISCORD_TOKEN);
+  // Log the bot in
+  client.login(client.config.DISCORD_TOKEN);
+};
+init();

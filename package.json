@@ -1,6 +1,6 @@
 {
   "name": "discord-battlebot",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "description": "A friendly little bot that querys game server stats",
   "main": "battlebot.js",
   "engines": {
@@ -9,7 +9,7 @@
   "scripts": {
     "preinstall": "cd qstat && ./autogen.sh",
     "install": "cd qstat && ./configure && make",
-    "start": "node battlebot.js"
+    "start": "./node_modules/forever/bin/forever battlebot.js"
   },
   "repository": {
     "type": "git",
@@ -31,6 +31,10 @@
   "license": "MIT",
   "dependencies": {
     "discord.js": "^11.2.1",
+    "forever": "^0.15.3",
+    "lokijs": "^1.5.1",
+    "moment": "^2.19.1",
+    "moment-duration-format": "^1.3.0",
     "request": "^2.82.0"
   }
 }
