@@ -3,6 +3,9 @@
 /qstat/T2phpstats
 /qstat/tests
 
+/storage/*.db
+/storage/*.db.*
+
 .vscode
 .DS_Store
 *.log

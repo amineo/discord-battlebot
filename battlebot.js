@@ -8,8 +8,10 @@
 */
  
 const { promisify } = require('util');
-const readdir = promisify(require('fs').readdir);
+const fs = require('fs');
+const readdir = promisify(fs.readdir);
 const loki = require('lokijs');
+const LokiFSStructuredAdapter = require('lokijs/src/loki-fs-structured-adapter');
 
 const Discord = require('discord.js');
 const client = new Discord.Client();
@@ -17,11 +19,29 @@ client.config = require('./config.js');
 require('./modules/utils.js')(client);
 
 
-// Setup our loki collections
-var db = new loki('loki.json');
-client.commands = db.addCollection('commands');
-client.aliases = db.addCollection('aliases');
 
+
+if (!fs.existsSync('./storage')){
+  fs.mkdirSync('./storage');
+}
+
+// setup our persistence storage layer
+client.db = new loki('storage/battlebot.db', {
+  adapter: new LokiFSStructuredAdapter(),
+  verbose: true,
+  autosave: true
+});
+
+
+// Setup our loki collections
+client.commands = client.db.getCollection('commands') || client.db.addCollection('commands', {
+  unique: ["name"],
+  autoupdate: true
+});
+client.aliases = client.db.getCollection('aliases') || client.db.addCollection('aliases', {
+  unique: ["name"],
+  autoupdate: true
+});
 
 
 const init = async () => {

@@ -17,16 +17,19 @@ module.exports = (client) => {
 
       if(props.conf.enabled){
         client.log("log", `✅  Loading Command: ${props.help.name}`);
+
         client.commands.insert({
           name: props.help.name,
           props: props
         });
+
         props.conf.aliases.forEach(alias => {
           client.aliases.insert({
             name: alias,
             props: props
           });
         });
+
       }else{
         client.log("log", `⚠️  Command Not Enabled: ${props.help.name}`);
       };
