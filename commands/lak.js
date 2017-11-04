@@ -1,17 +1,15 @@
-const { execFile } = require('child_process');
 const BattleBot = require('../modules/BattleBot.js');
 
 exports.run = async (client, message, args) => {
   try {
     // Query LAK
     let battlebot = new BattleBot();
-    let queryArgs = { ip: '67.222.138.13:28000' };
+    let queryArgs = client.config.t2ServerList.find(bb => bb.command === exports.help.name);
     await battlebot.displayServerDetail(queryArgs, message, args, client.config);
-
   }
   catch (err) {
     console.error(err)
-    await message.channel.send("Something went wrong...").catch(console.error);
+    await message.channel.send("Something went wrong..." + err).catch(console.error);
   }
 };
 

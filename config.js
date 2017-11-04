@@ -17,8 +17,24 @@ const config = {
     "prefix": prefix,
     "ownerID": "127396882908446720",
     "t2ServerList" : [
-      {"ip": "67.222.138.13:28000"},
-      {"ip": "208.100.45.135:28000"}
+        {
+            "command": "lak",
+            "ip": "67.222.138.13:28000"
+        },
+        {
+            "command": "scp",
+            "ip": "208.100.45.135:28000"
+        },
+        {
+            "command": "taco",            
+            "ip": "104.156.254.70:28000"
+        }
+    ],
+    "channels":[
+        {
+            "id": "375399716588093440",
+            "description": "BattleBot Dev Channel"
+        }
     ],
     "messageDeleteTimer":{
       "command":300000,
