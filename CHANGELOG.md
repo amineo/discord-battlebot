@@ -2,6 +2,20 @@
 
 ---
 
+## 0.7.0
+*11/04/2017*
+
+- Enable TacoStand and add to `t2` query
+- Setup local storage adapter with LokiJS
+- Code impovements for query lists (async/await) - Replaced generator
+- Better formatting of server detail query
+
+**Enhancements** 
+
+- BattleBot now monitors t2 servers and reports back that stats in the topic!
+
+---
+
 ## 0.6.1
 *10/29/2017*
 
