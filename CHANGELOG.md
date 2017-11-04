@@ -1,4 +1,10 @@
 # BattleBot Release Notes
+---
+
+## 0.7.1
+*11/04/2017*
+
+- Add Timezone support for monitor
 
 ---
 
