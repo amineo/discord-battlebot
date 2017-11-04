@@ -34,6 +34,10 @@ const config = {
         {
             "id": "375399716588093440",
             "description": "BattleBot Dev Channel"
+        },
+        {
+            "id": "281003732471382017",
+            "description": "Tribes 2 Discord"
         }
     ],
     "messageDeleteTimer":{
