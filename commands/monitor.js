@@ -1,5 +1,5 @@
 const QueryList = require('../modules/QueryList.js');
-const moment = require('moment');
+const moment = require('moment-timezone');
 
 
 var isPaused = false;
@@ -28,7 +28,7 @@ exports.run = async (client, message, args) => {
 
       
         let channelTopic = [];
-        let lookupDate = moment().format('MM/DD/YYYY, h:mm a');
+        let lookupDate = moment().tz('America/New_York').format('MM/DD/YYYY, h:mm a');
         serverInfo.forEach(function (server) {
           let topic = ` ${server.command.toUpperCase()} (${server.numplayers} / ${server.maxplayers})`;
           channelTopic.push(topic);
@@ -43,7 +43,7 @@ exports.run = async (client, message, args) => {
 
 
       }
-    }, 120000);
+    }, 5000);
 
 
     
