@@ -61,9 +61,9 @@ class BattleBot {
   
       data.players.forEach(function (player) {
         let playerObj = {
-          "name": player.name + "  -- " + player.team,
-          "value":player.score,
-          "inline":true
+          "name": `${player.name}`,
+          "value": `${player.score} -  _${player.team}_`,
+          "inline": true
         }
           discordTable.push(playerObj);
       });
@@ -79,11 +79,6 @@ class BattleBot {
           botmessage.delete(config.messageDeleteTimer.bot);
       });
     });
-
-
   }
-
-
-
 }
 module.exports = BattleBot;
