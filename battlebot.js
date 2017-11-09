@@ -43,6 +43,11 @@ client.aliases = client.db.getCollection('aliases') || client.db.addCollection('
   autoupdate: true
 });
 
+client.monitors = client.db.getCollection('monitors') || client.db.addCollection('monitors', {
+  unique: ["name"],
+  autoupdate: true
+});
+
 
 const init = async () => {
 
@@ -68,6 +73,20 @@ const init = async () => {
     delete require.cache[require.resolve(`./events/${file}`)];
   });
 
+
+
+  // Load our Monitors
+
+  const monitorFiles = await readdir("./monitors/");
+  client.log("log", `Loading a total of ${monitorFiles.length} monitors.`);
+
+  monitorFiles.forEach(file => {
+    if (!file.endsWith(".js")) return;
+    const response = client.loadMonitor(file);
+    if (response) console.log(response);
+  });
+
+  
 
 
   // Log the bot in

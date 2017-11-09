@@ -41,6 +41,33 @@ module.exports = (client) => {
     
 
 
+  // Load monitors and store them in loki
+  client.loadMonitor = (monitorName) => {
+    try {
+      const props = require(`../monitors/${monitorName}`);
+
+      if (props.conf.enabled) {
+        client.log("log", `✅  Loading Monitor: ${props.conf.name}`);
+
+        client.monitors.insert({
+          name: props.conf.name,
+          props: props
+        });
+
+        props.run(client);
+
+      } else {
+        client.log("log", `⚠️  Monitor Not Enabled: ${props.conf.name}`);
+      };
+
+    } catch (e) {
+      return `Unable to load command ${monitorName}: ${e}`;
+    }
+
+  };
+
+
+
 
 
   // on explode
