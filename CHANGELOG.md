@@ -1,6 +1,17 @@
 # BattleBot Release Notes
 ---
 
+## 0.7.2
+*11/09/2017*
+
+- Refactor Monitors to be isolated from commands. Monitors are now loaded and configured independently.
+
+**Enhancements** 
+
+- [Monitor] BattleBot now monitors Midair's active players and reports player count in the #midair channel topic
+
+---
+
 ## 0.7.1
 *11/04/2017*
 
