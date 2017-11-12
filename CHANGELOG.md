@@ -1,6 +1,16 @@
 # BattleBot Release Notes
 ---
 
+## 0.7.3
+*11/12/2017*
+
+**Bug Fixes** 
+
+- [Monitor] Addressed some stability issues if a server was offline during a query
+- [Query] If a server is offline during a query, BattleBot will report back if the server is down and no longer hang or say nothing
+
+---
+
 ## 0.7.2
 *11/09/2017*
 
@@ -11,7 +21,6 @@
 - [Monitor] BattleBot now monitors Midair's active players and reports player count in the #midair channel topic
 
 ---
-
 ## 0.7.1
 *11/04/2017*
 
