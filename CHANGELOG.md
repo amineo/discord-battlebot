@@ -1,6 +1,18 @@
 # BattleBot Release Notes
 ---
 
+## 0.7.4
+*11/12/2017*
+
+**Enhancements**  
+
+-  *Feature Request #5* - [Query] Add ability to post/sticky a query indefinitely or override the default timeout.
+    **Usage**
+    `!battlebot taco post` will post query results indefinitely.
+    `!battlebot taco 1` will post query results for 1 minute before auto-deleting.
+
+---
+
 ## 0.7.3
 *11/12/2017*
 
