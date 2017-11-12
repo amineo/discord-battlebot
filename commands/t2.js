@@ -17,12 +17,21 @@ exports.run = async (client, message, args) => {
   };
   
   serverInfo.forEach(function (server) {
-        let objServer = {
-            "name": `${server.name}`,
-            "value": `(${server.numplayers} / ${server.maxplayers}) ${server.map} - *${server.rules.mission}*`,
-            "inline": false
-        }
-        discordTable.push(objServer);
+    if(server.status === 'online'){
+      let objServer = {
+        "name": `${server.name}`,
+        "value": `(${server.numplayers} / ${server.maxplayers}) ${server.map} - *${server.rules.mission}*`,
+        "inline": false
+      }
+      discordTable.push(objServer);
+    }else{
+      let objServer = {
+        "name": `${server.command.toUpperCase()}`,
+        "value": `**OFFLINE** - _${server.address}_`,
+        "inline": false
+      }
+      discordTable.push(objServer);
+    }
   });
 
   discordMsg["embed"]["fields"] = discordTable;
