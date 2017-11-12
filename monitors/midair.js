@@ -22,9 +22,20 @@ exports.run = async (client) => {
                 });
 
                 let lookupDate = moment().tz('America/New_York').format('MM/DD/YYYY, h:mm a');
-                client.channels.get("354073039257862145").setTopic(`Active Players: ${playerCount} - [${lookupDate}]`)
-                    .then(liveTopic => console.log(`Channel's new topic is ${liveTopic.topic}`))
-                    .catch(console.error);
+
+
+                client.config.channels.midair.forEach(function (channel) {
+                    if (client.channels.get(channel.id)) {
+                        client.channels.get(channel.id).setTopic(`Active Players: ${playerCount} - [${lookupDate}]`)
+                            .then(liveTopic => console.log(`Channel (${channel.id})'s new topic is ${liveTopic.topic}`))
+                            .catch(console.error);
+                    }
+                    client.wait(500);
+                })
+
+
+
+
 
             }
 

@@ -30,16 +30,36 @@ const config = {
             "ip": "104.156.254.70:28000"
         }
     ],
-    "channels":[
-        {
-            "id": "375399716588093440",
-            "description": "BattleBot Dev Channel"
-        },
-        {
-            "id": "281003732471382017",
-            "description": "Tribes 2 Discord"
-        }
-    ],
+    "channels": {
+        "t2" : [
+            {
+                "id": "375399716588093440",
+                "description": "BattleBot Dev Channel"
+            },
+            {
+                "id": "358653227773853710",
+                "description": "temp"
+            },
+            {
+                "id": "281003732471382017",
+                "description": "Tribes 2 Discord"
+            }
+        ],
+        "midair": [
+            {
+                "id": "379305647038005268",
+                "description": "BattleBot Dev Channel"
+            },
+            {
+                "id": "358653227773853710",
+                "description": "temp"
+            },
+            {
+                "id": "354073039257862145",
+                "description": "Tribes 2 Discord"
+            }
+        ]
+    },
     "messageDeleteTimer":{
       "command":300000,
       "bot":300000
