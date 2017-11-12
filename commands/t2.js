@@ -36,10 +36,21 @@ exports.run = async (client, message, args) => {
 
   discordMsg["embed"]["fields"] = discordTable;
       
-  message.channel.send(discordMsg).then(function(botmessage){
+  message.channel.send(discordMsg).then(function (botmessage) {
+    let customTimeout;
+
+    // Abort out if we want this message to be posted indefinitely
+    if (args.indexOf('post') > -1 || args.indexOf('sticky') > -1) {
+      return;
+    }
+
+    if (Number.isInteger(parseInt(args[0])) && parseInt(args[0]) <= 120) {
+      customTimeout = (parseInt(args[0]) * 60000);
+    };
+
     // cleanup messages after 5 minutes
-    message.delete(client.config.messageDeleteTimer.command);
-    botmessage.delete(client.config.messageDeleteTimer.bot);
+    message.delete(customTimeout ? customTimeout : client.config.messageDeleteTimer.command);
+    botmessage.delete(customTimeout ? customTimeout : client.config.messageDeleteTimer.bot);
   });
   
 
