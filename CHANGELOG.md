@@ -1,6 +1,19 @@
 # BattleBot Release Notes
 ---
 
+## 0.7.5
+*11/13/2017*
+
+**Enhancements**  
+
+-  *Feature Request #4* - BattleBot now has the ability to define multiple root command prefixes 
+    **Usage** 
+
+    Call BattleBot with: `!battlebot`,`!bb`, `!b` 
+
+
+---
+
 ## 0.7.4
 *11/12/2017*
 
