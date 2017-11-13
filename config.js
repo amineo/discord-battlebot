@@ -5,9 +5,9 @@ const package = require("./package.json");
 let prefix;
 
 if(process.env.NODE_ENV == 'dev'){
-    prefix = ["!dev", "!devbot"];
+    prefix = ["!devbot", "!dev", "!d"];
 }else{
-    prefix = ["!battlebot", "!bb", "!b"];
+    prefix = ["!battlebot"];
 }
 
 const config = {
