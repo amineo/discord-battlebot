@@ -16,11 +16,9 @@ exports.run = async (client, message, args) => {
     generateHelp.push(help)
   });
 
-
-
   let discordMsg = {
-    "embed": {
-      "title": client.config.prefix + " <command>",
+    "embed": { 
+      "title": client.config.prefix.toString().replace(/,/g, ' or ') + " <command>",
       "url": "",
       "color": 15944727,
       "thumbnail": {

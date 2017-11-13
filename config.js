@@ -5,9 +5,9 @@ const package = require("./package.json");
 let prefix;
 
 if(process.env.NODE_ENV == 'dev'){
-    prefix = "!bb"; // ["!bb", "!dev"];
+    prefix = ["!dev", "!devbot"];
 }else{
-    prefix = "!battlebot"; //["!battlebot"];
+    prefix = ["!battlebot", "!bb", "!b"];
 }
 
 const config = {
@@ -53,8 +53,8 @@ const config = {
         ]
     },
     "messageDeleteTimer":{
-      "command":300000,
-      "bot":300000
+        "command": 300000,
+        "bot": 300000
     }
 }
 module.exports = config;
