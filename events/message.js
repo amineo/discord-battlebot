@@ -9,15 +9,19 @@ module.exports = (client, message) => {
     //if (message.content.indexOf(settings.prefix) !== 0) return;
     
     let rootPrefix;
-    settings.prefix.forEach(function (prefix) {
-      if (message.content.indexOf(prefix) !== 0){
-        return;
-      }else{
-        rootPrefix = prefix;
+    let messageCheck = message.content.split(" ");
+
+    for (var i = 0; i < settings.prefix.length; i++) {
+      if (settings.prefix[i] === messageCheck[0]) {
+        console.log(settings.prefix[i]);
+        rootPrefix = settings.prefix[i];
+        break;
       }
-    });
- 
-    if(!rootPrefix) return;
+    }
+    if (!rootPrefix) return;
+
+
+
 
     // Define command args
     const args = message.content.slice(rootPrefix.length).trim().split(/ +/g);
@@ -35,7 +39,7 @@ module.exports = (client, message) => {
       let injectArgs = args;
       injectArgs.push(`${rootPrefix} ${command}`);
       getCommand = client.commands.find({'name':'help'})[0];
-    }
+  }
 
     
     const runCommand = getCommand ? (getCommand = getCommand.props) : '';
