@@ -29,7 +29,7 @@ exports.run = async (client) => {
 
             client.config.channels.t2.forEach(function (channel) {
                 if (client.channels.get(channel.id)){
-                    client.channels.get(channel.id).setTopic(`${channelTopic.toString()} - [${lookupDate}]`)
+                    client.channels.get(channel.id).setTopic(`${channelTopic.toString()} - [${lookupDate} EST]`)
                         .then(liveTopic => console.log(`Channel (${channel.id})'s new topic is ${liveTopic.topic}`))
                         .catch(console.error);
                 }
