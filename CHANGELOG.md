@@ -1,4 +1,12 @@
 # BattleBot Release Notes
+
+---
+
+## 0.7.6
+*11/20/2017*
+
+-  *Fix #7* - Specify timezone in server monitor
+
 ---
 
 ## 0.7.5
@@ -10,7 +18,6 @@
     **Usage** 
 
     Call BattleBot with: `!battlebot`,`!bb`, `!b` 
-
 
 ---
 

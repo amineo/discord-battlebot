@@ -1,6 +1,6 @@
 {
   "name": "discord-battlebot",
-  "version": "0.7.5",
+  "version": "0.7.6",
   "description": "A friendly little bot that querys game server stats",
   "main": "battlebot.js",
   "engines": {
