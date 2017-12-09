@@ -2,8 +2,15 @@
 
 ---
 
+## 0.7.8
+*12/09/2017*
+
+- Display the T2 monitor on the T2 Discord #match_summary chan
+
+---
+
 ## 0.7.7
-*11/06/2017*
+*12/06/2017*
 
 - Update TacoStand's IP
 
