@@ -37,17 +37,18 @@ You can see BattleBot in action on the [Tribes 2 Discord](https://discord.gg/Y4m
 
 
 
+---
 
 
-### Installation
+## Installation
 
 
-## Prerequisites (API Keys)
+### Prerequisites (API Keys)
  - A Discord Bot token
  - A Steam Web API Key
 
 
-## Dev Setup
+### Dev Setup
  - Clone or Fork this repo
  - Pull in the submodules (_qstat_) with git submodule init/update
     ```
