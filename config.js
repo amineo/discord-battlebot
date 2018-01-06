@@ -18,16 +18,12 @@ const config = {
     "ownerID": "127396882908446720",
     "t2ServerList" : [
         {
-            "command": "lak",
-            "ip": "67.222.138.13:28000"
+            "command": "taco",
+            "ip": "45.32.194.175:28000"
         },
         {
             "command": "scp",
             "ip": "208.100.45.135:28000"
-        },
-        {
-            "command": "taco",            
-            "ip": "45.32.194.175:28000"
         }
     ],
     "channels": {
