@@ -2,6 +2,14 @@
 
 ---
 
+## 0.7.9
+*01/06/2018*
+
+- Disable SnapLakPub - Server Depricated
+- Add `slt` additional alias for TacoStand query
+
+---
+
 ## 0.7.8
 *12/09/2017*
 
