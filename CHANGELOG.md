@@ -5,7 +5,7 @@
 ## 0.7.9
 *01/06/2018*
 
-- Disable SnapLakPub - Server Depricated
+- Disable SnapLakPub - Server Deprecated
 - Add `slt` additional alias for TacoStand query
 
 ---
