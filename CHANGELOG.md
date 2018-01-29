@@ -2,6 +2,15 @@
 
 ---
 
+## 0.7.10
+*01/29/2018*
+
+- Update Discord.js to `11.3.0`
+- Add new server query/monitor for Nightflare Renegades. Usage: `!b ren`
+- Handle onDisconect events for Discord's API.
+
+---
+
 ## 0.7.9
 *01/06/2018*
 
