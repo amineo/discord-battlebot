@@ -9,5 +9,5 @@ module.exports = async client => {
 
   client.log("log", ` ${client.user.tag} (${client.config.version}) ready!  Serving ${client.users.size} users in ${client.guilds.size} servers.`, "Ready!");
 
-  client.user.setGame(`${client.config.prefix[0]} help`);
+  client.user.setActivity(`${client.config.prefix[0]} help`);
 };
