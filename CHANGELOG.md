@@ -2,6 +2,14 @@
 
 ---
 
+## 0.7.11
+*01/29/2018*
+
+- Update Moment.js to `^2.21.0`
+- Update Taco's Server IP
+
+---
+
 ## 0.7.10
 *01/29/2018*
 
