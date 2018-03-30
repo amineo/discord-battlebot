@@ -39,10 +39,6 @@ const config = {
             {
                 "id": "281003732471382017",
                 "description": "Tribes 2 Discord: #chat"
-            },
-            {
-                "id": "381885021318807555",
-                "description": "Tribes 2 Discord: #match_summary"
             }
         ],
         "midair": [
