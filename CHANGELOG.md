@@ -2,6 +2,13 @@
 
 ---
 
+## 0.7.12
+*03/30/2018*
+
+- Remove #Match_Reporter topics monitor
+
+---
+
 ## 0.7.11
 *01/29/2018*
 
