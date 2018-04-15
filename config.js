@@ -24,10 +24,6 @@ const config = {
         {
             "command": "scp",
             "ip": "208.100.45.135:28000"
-        },
-        {
-            "command": "ren",
-            "ip": "23.254.144.134:28000"
         }
     ],
     "channels": {
