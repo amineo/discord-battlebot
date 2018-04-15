@@ -2,6 +2,13 @@
 
 ---
 
+## 0.7.13
+*04/15/2018*
+
+- Remove REN from topic monitor. `!b ren` server query still exists.
+
+---
+
 ## 0.7.12
 *03/30/2018*
 
