@@ -19,7 +19,7 @@ const config = {
     "t2ServerList" : [
         {
             "command": "taco",
-            "ip": "108.174.200.204:28000"
+            "ip": "144.202.29.101:28000"
         },
         {
             "command": "scp",
