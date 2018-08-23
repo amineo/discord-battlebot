@@ -41,10 +41,6 @@ const config = {
             {
                 "id": "379305647038005268",
                 "description": "BattleBot Dev Channel"
-            },
-            {
-                "id": "354073039257862145",
-                "description": "Tribes 2 Discord"
             }
         ]
     },
