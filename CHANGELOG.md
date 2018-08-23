@@ -2,6 +2,13 @@
 
 ---
 
+## 0.7.17
+*08/23/2018*
+
+- Remove MidAir topic monitor from the Tribes 2 Discord. Channel was archived.
+
+---
+
 ## 0.7.16
 *07/18/2018*
 
