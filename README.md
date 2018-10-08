@@ -15,8 +15,8 @@ You can see BattleBot in action on the [Tribes 2 Discord](https://discord.gg/Y4m
 | Command  | Description                                                                                    |
 |----------|------------------------------------------------------------------------------------------------|
 | `help`   | A list of supported commands. All BattleBot query commands self-delete after a 5 minute timout |
-| `t2`     | Display the server populations for LAK, SCP & Taco                                             |
-| `taco`   | Shows detailed server stats for TacoStand                                                      |
+| `t2`     | Display the server populations for LAK, SCP & PU                                             |
+| `pu`     | Shows detailed server stats for PU server                                                      |
 | `scp`    | Shows detailed server stats for Snap Crackle Pub                                               |
 | `midair` | Display a summary of only populated Midair servers                                             |
 | `stats`  | How is BattleBot's toaster doing?                                                              |
