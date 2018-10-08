@@ -4,7 +4,7 @@ const { execFile } = require('child_process');
 class QStatQuery {
 
   constructor(params = {}){
-    this.ip = params.ip || '67.222.138.13:28000';
+    this.ip = params.ip || '208.100.45.121:28000';
     this.game = params.game || '-t2s';
     this.sortBy = params.sortBy || 'T';
   }
