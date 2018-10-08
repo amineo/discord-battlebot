@@ -18,8 +18,8 @@ const config = {
     "ownerID": "127396882908446720",
     "t2ServerList" : [
         {
-            "command": "taco",
-            "ip": "67.222.138.12:28000"
+            "command": "pu",
+            "ip": "	208.100.45.121:28000"
         },
         {
             "command": "scp",
