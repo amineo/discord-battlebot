@@ -16,20 +16,20 @@ exports.run = async (client) => {
 
 
             let channelTopic = [];
-            let lookupDate = moment().tz('America/New_York').format('MM/DD/YYYY, h:mm a');
+            let lookupDate = moment().tz('America/New_York').format('h:mm a');
             serverInfo.forEach(function (server) {
                 if (server.status === 'online') {
-                    let topic = ` ${server.command.toUpperCase()} (${server.numplayers} / ${server.maxplayers})`;
+                    let topic = ` ${server.command.toUpperCase()} [${server.numplayers} / ${server.maxplayers}]`;
                     channelTopic.push(topic);
                 } else {
-                    let topic = ` ${server.command.toUpperCase()} (OFFLINE)`;
+                    let topic = ` ${server.command.toUpperCase()} [DOWN]`;
                     channelTopic.push(topic);
                 }
             });
 
             client.config.channels.t2.forEach(function (channel) {
                 if (client.channels.get(channel.id)){
-                    client.channels.get(channel.id).setTopic(`${channelTopic.toString()} - [${lookupDate} EST]`)
+                    client.channels.get(channel.id).setTopic(`${channelTopic.toString()} - ${lookupDate} EST`)
                         .then(liveTopic => console.log(`Channel (${channel.id})'s new topic is ${liveTopic.topic}`))
                         .catch(console.error);
                 }
