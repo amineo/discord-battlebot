@@ -2,6 +2,13 @@
 
 ---
 
+## 0.8.0
+*10/09/2018*
+
+- Merge various tweaks from @ChocoTaco1
+
+---
+
 ## 0.7.17
 *08/23/2018*
 
