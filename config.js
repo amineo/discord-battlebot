@@ -16,6 +16,12 @@ const config = {
     "STEAM_KEY": process.env.STEAM_KEY,
     "prefix": prefix,
     "ownerID": "127396882908446720",
+    "notify": {
+        "role": "BB-Notifications",
+        "playerThreshold": 6,
+        "optinKeywords": ["yes", "optin", "optin"],
+        "optoutKeywords": ["no", "stop", "optout"]
+    },
     "t2ServerList" : [
         {
             "command": "pu",
