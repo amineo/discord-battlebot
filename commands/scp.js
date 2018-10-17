@@ -16,7 +16,7 @@ exports.run = async (client, message, args) => {
 
 exports.conf = {
   enabled: true,
-  aliases: []
+  aliases: ['scp', 'snap', 'sco' , 'spc', 'psc', 'crackle', 'pop', 'snapc', 'csp', 'crackpop', 'snappyboi', 'snappy', 'esceepay']
 };
 
 
