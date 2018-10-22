@@ -27,7 +27,12 @@
     "midair",
     "game server stats"
   ],
-  "author": "Anthony Mineo",
+  "authors": {
+    "name": "Anthony Mineo",
+    "email": "anthonymineo@gmail.com",
+    "url": "https://anthonymineo.com"
+  },
+  "contributors": [],
   "license": "MIT",
   "dependencies": {
     "discord.js": "^11.3.0",
