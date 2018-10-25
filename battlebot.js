@@ -42,8 +42,11 @@ client.aliases = client.db.getCollection('aliases') || client.db.addCollection('
   unique: ["name"],
   autoupdate: true
 });
-
 client.monitors = client.db.getCollection('monitors') || client.db.addCollection('monitors', {
+  unique: ["name"],
+  autoupdate: true
+});
+client.notifications = client.db.getCollection('notifications') || client.db.addCollection('notifications', {
   unique: ["name"],
   autoupdate: true
 });
@@ -76,7 +79,6 @@ const init = async () => {
 
 
   // Load our Monitors
-
   const monitorFiles = await readdir("./monitors/");
   client.log("log", `Loading a total of ${monitorFiles.length} monitors.`);
 

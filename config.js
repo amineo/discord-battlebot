@@ -10,6 +10,8 @@ if(process.env.NODE_ENV == 'dev'){
     prefix = ["!battlebot","!bb", "!b"];
 }
 
+// BB Notifications Live : 504775057026056192
+
 const config = {
     "version": package.version,
     "DISCORD_TOKEN": process.env.DISCORD_TOKEN,
@@ -18,7 +20,8 @@ const config = {
     "ownerID": "127396882908446720",
     "notify": {
         "role": "BB-Notifications",
-        "playerThreshold": 6,
+        "roleIDs": ['501753215151243265'],
+        "playerThreshold": 4,
         "optinKeywords": ["yes", "optin", "optin"],
         "optoutKeywords": ["no", "stop", "optout"]
     },
