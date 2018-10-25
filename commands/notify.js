@@ -1,6 +1,7 @@
 exports.run = async (client, message, args) => {
 
-    let notificationsRole = message.guild.roles.find(role => role.name === client.config.notify.role);    
+    let notificationsRole = message.guild.roles.find(role => role.name === client.config.notify.role);
+    
     let optStatus = args[0];
 
     // Default to optin with no params attached to command
