@@ -58,7 +58,7 @@ exports.run = async (client) => {
 
                     // if(notification.map === serverSnapshot.map && 
                     //    serverSnapshot.players >= notification.players){
-                    if(serverSnapshot.players === notification.players && dateDiff >= 5){
+                    if(serverSnapshot.players === notification.players){
 
                         serverSnapshot['$loki'] = notification['$loki'];
                         serverSnapshot['meta'] = notification['meta'];
@@ -69,7 +69,8 @@ exports.run = async (client) => {
                         client.channels.get("375399716588093440").send(`<@&${notificationsID}> **${serverSnapshot.gameType}**: ${serverSnapshot.name} has ${serverSnapshot.players} player on ${serverSnapshot.map}`);
 
 
-                    } else if( serverSnapshot.players > notification.players && playerDiff >= 2){
+                    } else if( serverSnapshot.players > notification.players && dateDiff >= 5){
+                        // && playerDiff >= 2
                         // Player increased by atleast 2, so we should notify
                         // IF-ception
                       //  if(playerDiff >= 2 && dateDiff >=10){
