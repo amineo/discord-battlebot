@@ -16,6 +16,10 @@ function displayNotification(client, data){
                 "timestamp": lookupDate,
                 "author": {
                     "name": data.name
+                },
+                "footer": {
+                    "icon_url": "https://cdn.discordapp.com/avatars/357243039783059458/93babb447e36b7e778e44078ffb2d294.png?size=256",
+                    "text": "You can opt-in/out of notifications with !bb notify yes/no"
                 }
             }
         };
