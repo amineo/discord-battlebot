@@ -1,6 +1,37 @@
 const QueryList = require('../modules/QueryList.js');
 const moment = require('moment-timezone');
 
+
+
+function displayNotification(client, data){
+    console.log('Display notification');
+
+    client.config.notify.roleIDs.forEach(function(roleID){
+        let lookupDate = moment().toISOString();
+        let discordMsg = {
+            "embed": {
+                "title": data.gameType,
+                "description": "**"+data.players + " Players** on " + data.map,
+                "color": 14090747,
+                "timestamp": lookupDate,
+                "author": {
+                    "name": data.name
+                }
+            }
+        };
+
+        // then get each channels.t2 and see if the notifyIDs match
+        client.config.channels.t2.forEach(function(channel){
+            if(roleID === channel.notifyID){
+                client.channels.get(channel.id).send(`<@&${roleID}>`, discordMsg);
+            }
+        });
+ 
+    });
+}
+
+
+
 exports.run = async (client) => {
     let enabled = exports.conf.enabled;
     let time = 0;
@@ -13,7 +44,7 @@ exports.run = async (client) => {
             time++;
             console.log("Query: " + time);
 
-
+    
             let channelTopic = [];
             let lookupDate = moment().tz('America/New_York').format('h:mm a');
             serverInfo.forEach(function (server) {
@@ -46,7 +77,8 @@ exports.run = async (client) => {
 
                     if(client.config.notify.playerThreshold > notification.players){
                         console.log(`Not enough players on ${serverSnapshot.name} to notify roles`);
-                        return
+                        serverSnapshot['hasNotified'] = false;
+                        return;
                     }
                     console.log('We have enough players! Checking diff...');
                   
@@ -58,42 +90,44 @@ exports.run = async (client) => {
 
                     // if(notification.map === serverSnapshot.map && 
                     //    serverSnapshot.players >= notification.players){
-                    if(serverSnapshot.players === notification.players){
-
+                    if(!notification.hasNotified){
+                        console.log('First Notification');
                         serverSnapshot['$loki'] = notification['$loki'];
                         serverSnapshot['meta'] = notification['meta'];
+                        serverSnapshot['hasNotified'] = true;
                         client.notifications.update(serverSnapshot);
 
                         // Notify
-                        let notificationsID = '501753215151243265';
-                        client.channels.get("375399716588093440").send(`<@&${notificationsID}> **${serverSnapshot.gameType}**: ${serverSnapshot.name} has ${serverSnapshot.players} player on ${serverSnapshot.map}`);
+                        displayNotification(client, serverSnapshot);
 
-
-                    } else if( serverSnapshot.players > notification.players && dateDiff >= 5){
-                        // && playerDiff >= 2
-                        // Player increased by atleast 2, so we should notify
-                        // IF-ception
-                      //  if(playerDiff >= 2 && dateDiff >=10){
+                    } else if( serverSnapshot.players > notification.players && playerDiff >= 2){
+                        // playerDiff or dateDiff?
                             serverSnapshot['$loki'] = notification['$loki'];
                             serverSnapshot['meta'] = notification['meta'];
+                            serverSnapshot['hasNotified'] = true;
+
                             client.notifications.update(serverSnapshot);
 
                             // Notify
-                            let notificationsID = '501753215151243265';
-                            client.channels.get("375399716588093440").send(`<@&${notificationsID}> **${serverSnapshot.gameType}**: ${serverSnapshot.name} has ${serverSnapshot.players} player on ${serverSnapshot.map}`);
+                            displayNotification(client, serverSnapshot);
 
                        // }
-                    }else{
+                    } else if( serverSnapshot.map != notification.map){
+                        console.log('Map changed, lets let people know we still got a game going next check');
                         // Map has rotated and player count has grown
                         serverSnapshot['$loki'] = notification['$loki'];
                         serverSnapshot['meta'] = notification['meta'];
+                        serverSnapshot['hasNotified'] = false;
                         client.notifications.update(serverSnapshot);
+                    }else{
+                        console.log('No changes to notify about');
                     }
 
 
 
                 } else {
-                    console.log(`Entry for ${serverSnapshot.name} does not exist, creating db entry`);
+                    console.log('Entry for ' + serverSnapshot.name + ' does not exist creating db entry');
+                    serverSnapshot['hasNotified'] = false;
                     client.notifications.insert(serverSnapshot);
                 };
                 
