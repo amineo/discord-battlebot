@@ -1,16 +1,18 @@
 // Setup main config with our env vars and basic settings.
 const package = require("./package.json");
 
-
-let prefix;
-
+// ENV specific variables
+let prefix, roleIDSets, playerThreshold;
 if(process.env.NODE_ENV == 'dev'){
     prefix = ["!devbot", "!dd", "!d"];
+    roleIDSets = ['501753215151243265'];
+    playerThreshold = 0;
 }else{
     prefix = ["!battlebot","!bb", "!b"];
+    roleIDSets = ['501753215151243265','501961027273883648'];
+    playerThreshold = 10;
 }
 
-// BB Notifications Live : 504775057026056192
 
 const config = {
     "version": package.version,
@@ -20,8 +22,8 @@ const config = {
     "ownerID": "127396882908446720",
     "notify": {
         "role": "BB-Notifications",
-        "roleIDs": ['501753215151243265'],
-        "playerThreshold": 4,
+        "roleIDs": roleIDSets,
+        "playerThreshold": playerThreshold,
         "optinKeywords": ["yes", "optin", "optin"],
         "optoutKeywords": ["no", "stop", "optout"]
     },
@@ -39,10 +41,12 @@ const config = {
         "t2" : [
             {
                 "id": "375399716588093440",
+                "notifyID": "501753215151243265",
                 "description": "BattleBot Dev Channel"
             },
             {
                 "id": "281003732471382017",
+                "notifyID": "501961027273883648",
                 "description": "Tribes 2 Discord: #chat"
             }
         ],
