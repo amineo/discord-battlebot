@@ -62,9 +62,9 @@ exports.run = async (client) => {
 
                 // Role-based notifications
                 let serverSnapshot = {
-                    name: server.name,
-                    map: server.map,
-                    gameType: server.rules.mission,
+                    name: server.name || '',
+                    map: server.map || '',
+                    gameType: server.rules.mission || '',
                     players: server.numplayers
                 };
                 serverSnapshot['lastChecked'] = new Date;
