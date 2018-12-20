@@ -58,13 +58,19 @@ exports.run = async (client) => {
                 } else {
                     let topic = ` ${server.command.toUpperCase()} [DOWN]`;
                     channelTopic.push(topic);
+                    console.log('Having issues reaching server:' + server.command);
+                    console.log('Status:' + server.status);
+                    return;
                 }
-
+                
+                console.log('Debug Server query object:')
+                console.log(server);
+                console.log('----');
                 // Role-based notifications
                 let serverSnapshot = {
                     name: server.name || '',
                     map: server.map || '',
-                    gameType: 'TODO: GameType',
+                    gameType: server.rules['mission'] || '',
                     players: server.numplayers
                 };
                 serverSnapshot['lastChecked'] = new Date;
