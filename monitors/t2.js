@@ -64,7 +64,7 @@ exports.run = async (client) => {
                 let serverSnapshot = {
                     name: server.name || '',
                     map: server.map || '',
-                    gameType: server.rules.mission || '',
+                    gameType: 'TODO: GameType',
                     players: server.numplayers
                 };
                 serverSnapshot['lastChecked'] = new Date;
