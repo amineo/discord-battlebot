@@ -58,6 +58,9 @@ exports.run = async (client) => {
                 } else {
                     let topic = ` ${server.command.toUpperCase()} [DOWN]`;
                     channelTopic.push(topic);
+                    console.log('Having issues reaching server:' + server.command);
+                    console.log('Status:' + server.status);
+                    return;
                 }
                 
                 console.log('Debug Server query object:')
@@ -67,7 +70,7 @@ exports.run = async (client) => {
                 let serverSnapshot = {
                     name: server.name || '',
                     map: server.map || '',
-                    gameType: server.rules.mission || '',
+                    gameType: server.rules['mission'] || '',
                     players: server.numplayers
                 };
                 serverSnapshot['lastChecked'] = new Date;

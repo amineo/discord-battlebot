@@ -6,7 +6,7 @@ let prefix, roleIDSets, playerThreshold;
 if(process.env.NODE_ENV == 'dev'){
     prefix = ["!devbot", "!dd", "!d"];
     roleIDSets = ['501753215151243265'];
-    playerThreshold = 0;
+    playerThreshold = 1;
 }else{
     prefix = ["!battlebot","!bb", "!b"];
     roleIDSets = ['501753215151243265','501961027273883648'];
