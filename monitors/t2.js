@@ -59,12 +59,15 @@ exports.run = async (client) => {
                     let topic = ` ${server.command.toUpperCase()} [DOWN]`;
                     channelTopic.push(topic);
                 }
-
+                
+                console.log('Debug Server query object:')
+                console.log(server);
+                console.log('----');
                 // Role-based notifications
                 let serverSnapshot = {
                     name: server.name || '',
                     map: server.map || '',
-                    gameType: 'TODO: GameType',
+                    gameType: server.rules.mission || '',
                     players: server.numplayers
                 };
                 serverSnapshot['lastChecked'] = new Date;
