@@ -27,7 +27,7 @@ function displayNotification(client, data){
         // then get each channels.t2 and see if the notifyIDs match
         client.config.channels.t2.forEach(function(channel){
             if(roleID === channel.notifyID){
-                client.channels.get(channel.id).send(`<@&${roleID}>`, discordMsg);
+          //      client.channels.get(channel.id).send(`<@&${roleID}>`, discordMsg);
             }
         });
  
@@ -108,7 +108,7 @@ exports.run = async (client) => {
                         client.notifications.update(serverSnapshot);
 
                         // Notify
-                        displayNotification(client, serverSnapshot);
+                      //  displayNotification(client, serverSnapshot);
 
                     } else if( serverSnapshot.players > notification.players && playerDiff >= 2){
                         // playerDiff or dateDiff?
@@ -119,7 +119,7 @@ exports.run = async (client) => {
                             client.notifications.update(serverSnapshot);
 
                             // Notify
-                            displayNotification(client, serverSnapshot);
+                        //    displayNotification(client, serverSnapshot);
 
                        // }
                     } else if( serverSnapshot.map != notification.map){
