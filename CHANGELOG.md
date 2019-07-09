@@ -1,6 +1,13 @@
 # BattleBot Release Notes
 ---
 
+## 0.9.3
+*07/09/2019*
+
+- Better topic formatting
+
+---
+
 ## 0.9.2
 *07/09/2019*
 
