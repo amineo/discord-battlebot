@@ -16,12 +16,12 @@ exports.run = async (client, message, args) => {
 
 exports.conf = {
   enabled: true,
-  aliases: ['pu', 'taco']
+  aliases: ['pub', 'pu']
 };
 
 
 exports.help = {
-  name: "pu",
+  name: "pub",
   description: "Shows detailed server stats for PU server",
-  usage: "pu"
+  usage: "pub"
 };

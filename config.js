@@ -29,8 +29,8 @@ const config = {
     },
     "t2ServerList" : [
         {
-            "command": "pu",
-            "ip": "208.100.45.121:28000"
+            "command": "pub",
+            "ip": "67.222.138.12:28000"
         },
         {
             "command": "scp",
