@@ -1,13 +1,19 @@
 # BattleBot Release Notes
 ---
 
+## 0.9.2
+*07/09/2019*
+
+- Update topic monitor to include some basic server stats
+
+---
+
 ## 0.9.1
 *07/09/2019*
 
 - Update PU monitor and query commands to include the new T2 Discord PUB info
 
 ---
-
 ## 0.8.0
 *10/09/2018*
 
