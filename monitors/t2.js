@@ -53,10 +53,10 @@ exports.run = async (client) => {
             let lookupDate = moment().tz('America/New_York').format('h:mm a');
             serverInfo.forEach(function (server) {
                 if (server.status === 'online') {
-                    let topic = ` ${server.command.toUpperCase()} [${server.numplayers} / ${server.maxplayers}]`;
+                    let topic = ` ${server.command.toUpperCase()} [${server.numplayers} / ${server.maxplayers}] - ${server.rules['mission']}::${server.map}`;
                     channelTopic.push(topic);
                 } else {
-                    let topic = ` ${server.command.toUpperCase()} [DOWN]`;
+                    let topic = `     ${server.command.toUpperCase()} [DOWN]`;
                     channelTopic.push(topic);
                     console.log('Having issues reaching server:' + server.command);
                     console.log('Status:' + server.status);
