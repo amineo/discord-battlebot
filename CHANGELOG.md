@@ -1,6 +1,12 @@
 # BattleBot Release Notes
 ---
 
+## 0.9.4
+*07/24/2019*
+
+- Remove SCP, long live SCP. Add 10 Man Arena Pub
+
+---
 ## 0.9.3
 *07/09/2019*
 
