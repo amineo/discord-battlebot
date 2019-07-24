@@ -21,7 +21,7 @@ exports.conf = {
 
 
 exports.help = {
-  name: "scp",
-  description: "Shows detailed server stats for Snap Crackle Pub",
-  usage: "scp"
+  name: "arena",
+  description: "Shows detailed server stats for 10 Man Arena PUB",
+  usage: "arena"
 };
