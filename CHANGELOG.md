@@ -1,6 +1,13 @@
 # BattleBot Release Notes
 ---
 
+## 0.9.5
+*07/24/2019*
+
+- T2 topic monitor only shows detail if player count is >= 2
+
+---
+
 ## 0.9.4
 *07/24/2019*
 
