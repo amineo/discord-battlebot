@@ -66,6 +66,6 @@ exports.conf = {
 
 exports.help = {
   name: "t2",
-  description: "Display the server populations for LAK & SCP",
+  description: "Display the server populations for monitored T2 servers",
   usage: "t2"
 };
