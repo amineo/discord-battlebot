@@ -2,7 +2,7 @@
 const package = require("./package.json");
 
 // ENV specific variables
-let prefix, roleIDSets, playerThreshold;
+let prefix;
 if(process.env.NODE_ENV == 'dev'){
     prefix = ["!devbot", "!dd", "!d"];
     roleIDSets = ['501753215151243265'];
@@ -20,13 +20,6 @@ const config = {
     "STEAM_KEY": process.env.STEAM_KEY,
     "prefix": prefix,
     "ownerID": "127396882908446720",
-    "notify": {
-        "role": "BB-Notifications",
-        "roleIDs": roleIDSets,
-        "playerThreshold": playerThreshold,
-        "optinKeywords": ["yes", "optin", "optin"],
-        "optoutKeywords": ["no", "stop", "optout"]
-    },
     "t2ServerList" : [
         {
             "command": "pub",
