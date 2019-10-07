@@ -4,6 +4,8 @@
 ## 0.9.6
 *10/07/2019*
 
+- [CHORE] Remove old notification code
+- Update help text on the t2 commands
 - Cleaning for Hacktober Fest! :D
 
 ---
