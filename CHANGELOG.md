@@ -1,6 +1,12 @@
 # BattleBot Release Notes
 ---
 
+## 0.9.6
+*10/07/2019*
+
+- Cleaning for Hacktober Fest! :D
+
+---
 ## 0.9.5
 *07/24/2019*
 
