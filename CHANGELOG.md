@@ -1,6 +1,12 @@
 # BattleBot Release Notes
 ---
 
+## 0.9.7
+*11/30/2019*
+
+- Add monitoring for new Discord Proving Grounds server
+
+---
 ## 0.9.6
 *10/07/2019*
 
