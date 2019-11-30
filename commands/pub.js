@@ -16,12 +16,12 @@ exports.run = async (client, message, args) => {
 
 exports.conf = {
   enabled: true,
-  aliases: ['pub', 'pu', 'lak']
+  aliases: ['lak']
 };
 
 
 exports.help = {
   name: "pub",
-  description: "Shows detailed server stats for PU server",
+  description: "Shows detailed server stats for PUB server",
   usage: "pub"
 };
