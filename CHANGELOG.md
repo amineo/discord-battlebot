@@ -1,6 +1,14 @@
 # BattleBot Release Notes
 ---
 
+## 0.10.0
+*01/08/2020*
+
+- New `ip` command. Allow query of any tribes 2 server by passing in an ip
+    - usage `!battlebot ip 144.202.60.138`
+
+---
+
 ## 0.9.7
 *11/30/2019*
 
