@@ -22,6 +22,10 @@ const config = {
         {
             "command": "pub",
             "ip": "67.222.138.12:28000"
+        },
+        {
+            "command": "boot",
+            "ip": "208.100.45.112:28000"
         }
     ],
     "channels": {

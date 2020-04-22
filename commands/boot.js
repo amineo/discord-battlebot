@@ -21,7 +21,7 @@ exports.conf = {
 
 
 exports.help = {
-  name: "pg",
-  description: "Shows detailed server stats for Discord Proving Grounds",
-  usage: "pg"
+  name: "boot",
+  description: "Shows detailed server stats for Boot's Chicago Classic",
+  usage: "boot"
 };
