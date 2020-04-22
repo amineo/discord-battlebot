@@ -8,7 +8,7 @@ exports.run = async (client) => {
     let t = setInterval(async function () {
         if (enabled) {
             // lock monitor to discord pub only for now
-            let queryServerList = new QueryList(client.config.t2ServerList[0]);
+            let queryServerList = new QueryList(client.config.t2ServerList);
             let serverInfo = await queryServerList.queryList();
 
             time++;
