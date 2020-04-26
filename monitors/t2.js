@@ -7,8 +7,10 @@ exports.run = async (client) => {
 
     let t = setInterval(async function () {
         if (enabled) {
-            // lock monitor to discord pub only for now
-            let queryServerList = new QueryList(client.config.t2ServerList);
+            // Add only if topic monitor is enabled for the server
+            const topicMonitorServerList = client.config.t2ServerList.filter(server => server.monitor === true);
+
+            let queryServerList = new QueryList(topicMonitorServerList);
             let serverInfo = await queryServerList.queryList();
 
             time++;
@@ -16,7 +18,7 @@ exports.run = async (client) => {
     
             let channelTopic = [];
             let lookupDate = moment().tz('America/New_York').format('h:mm a');
-            serverInfo.forEach(function (server) {
+            serverInfo.forEach(function (server, i) {
                 if (server.status === 'online') {
                     let topic;
                     if(server.numplayers >= 2) {
@@ -32,7 +34,6 @@ exports.run = async (client) => {
                     console.log('Status:' + server.status);
                     return;
                 }
-                
             });
 
             client.config.channels.t2.forEach(function (channel) {

@@ -16,12 +16,12 @@ exports.run = async (client, message, args) => {
 
 exports.conf = {
   enabled: true,
-  aliases: ['pu']
+  aliases: ['pu', 'bpp', 'boot']
 };
 
 
 exports.help = {
-  name: "boot",
+  name: "bcc",
   description: "Shows detailed server stats for Boot's Chicago Classic",
-  usage: "boot"
+  usage: "bcc"
 };

@@ -21,8 +21,19 @@ const config = {
     "t2ServerList" : [
         {
             "command": "pub",
-            "ip": "67.222.138.12:28000"
-        }
+            "ip": "67.222.138.12:28000",
+            "monitor": true
+        },
+        {
+            "command": "bcc",
+            "ip": "208.100.45.112:28000",
+            "monitor": false
+        },
+        {
+            "command": "ald",
+            "ip": "104.238.220.181:28000",
+            "monitor": false
+        }        
     ],
     "channels": {
         "t2" : [

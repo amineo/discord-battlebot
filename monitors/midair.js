@@ -47,6 +47,6 @@ exports.run = async (client) => {
 exports.conf = {
     name: "midair-monitor",
     description: "Monitor how many people are playing Midair",
-    enabled: true,
+    enabled: false,
     interval: 60001
 };
