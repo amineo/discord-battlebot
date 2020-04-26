@@ -1,4 +1,12 @@
 # BattleBot Release Notes
+
+---
+
+## 0.12.0
+*04/26/2020*
+
+- Add ability to include a server in the main query list but not topic monitor
+
 ---
 
 ## 0.10.0
