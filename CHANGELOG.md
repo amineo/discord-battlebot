@@ -2,6 +2,14 @@
 
 ---
 
+## 0.12.2
+*05/30/2020*
+
+- Update topic monitor frequence to discords rate limiting for topic changes. Currently only allows for 2 updates within a 10 minute window
+
+---
+
+
 ## 0.12.0
 *04/26/2020*
 
