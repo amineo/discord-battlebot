@@ -12,11 +12,8 @@ exports.run = (client) => {
         // Add only if topic monitor is enabled for the server
         let serverInfo = await queryServerList.queryList();
         let channelTopic = [];
-
-            queryIteration++;
-        //     console.log("Query: " + queryIteration);
-        // let lookupDate = moment().tz('America/New_York').format('h:mm a');
-        // client.channels.get('375399716588093440').setTopic("HI"+queryIteration)
+        
+        queryIteration++;
 
         if ( exports.conf.enabled) {
     
@@ -38,32 +35,19 @@ exports.run = (client) => {
                 }
             });
 
-           console.log(channelTopic);
+            client.config.channels.t2.forEach(async function (channel) {
+                await sleep(1000).then(() => {      
+                    let lookupDate = moment().tz('America/New_York').format('h:mm a');
+                    let nextLookupDate = moment().add(5, 'minutes').tz('America/New_York').format('h:mm a');
 
-
-            
-
-             // console.log(client.channels.get('375399716588093440'));
-   
-            // client.channels.get('375399716588093440').setTopic(`${channelTopic.toString()} - ${lookupDate} EST`)
-            //                     .then(liveTopic => console.log(`Channel (375399716588093440)'s new topic is ${liveTopic.topic}`))
-            //                     .catch(console.error);
-                    
-
-            // client.config.channels.t2.forEach(async function (channel) {
-            //     await sleep(1500).then(() => {      
-            //         let lookupDate = moment().tz('America/New_York').format('h:mm a');
-
-            //         if (client.channels.get(channel.id)){
-            //             client.channels.get(channel.id).setTopic(`${channelTopic.toString()} - ${lookupDate} EST`)
-            //                     .then(liveTopic => console.log(`Channel (${channel.id})'s new topic is ${liveTopic.topic}`))
-            //                     .catch(console.error);
-            //         }
-            //     });
-            // })
-
+                    if (client.channels.get(channel.id)){
+                        client.channels.get(channel.id).setTopic(`${channelTopic.toString()} - ${lookupDate} EST; Next lookup at ${nextLookupDate} EST`)
+                                .then(liveTopic => console.log(`Channel (${channel.id})'s new topic is ${liveTopic.topic}`))
+                                .catch(console.error);
+                    }
+                });
+            })
         }
-
 
     }, exports.conf.interval);
 
@@ -73,6 +57,6 @@ exports.run = (client) => {
 exports.conf = {
     name: "t2-monitor",
     description: "Tribes 2 server traffic monitor. Traffic reports set as channel topics",
-    enabled: false,
-    interval: 600001
+    enabled: true,
+    interval: 300001
 };
