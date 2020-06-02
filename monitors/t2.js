@@ -36,16 +36,16 @@ exports.run = (client) => {
             });
 
             client.config.channels.t2.forEach(async function (channel) {
-                await sleep(1000).then(() => {      
-                    let lookupDate = moment().tz('America/New_York').format('h:mm a');
-                    let nextLookupDate = moment().add(5, 'minutes').tz('America/New_York').format('h:mm a');
+                // await sleep(50).then(() => {
+                // });
+                let lookupDate = moment().tz('America/New_York').format('h:mm a');
+                let nextLookupDate = moment().add(5, 'minutes').tz('America/New_York').format('h:mm a');
 
-                    if (client.channels.get(channel.id)){
-                        client.channels.get(channel.id).setTopic(`${channelTopic.toString()} - ${lookupDate} EST; Next lookup at ${nextLookupDate} EST`)
-                                .then(liveTopic => console.log(`Channel (${channel.id})'s new topic is ${liveTopic.topic}`))
-                                .catch(console.error);
-                    }
-                });
+                if (client.channels.get(channel.id)){
+                    client.channels.get(channel.id).setTopic(`${channelTopic.toString()} - ${lookupDate} EST; Next lookup at ${nextLookupDate} EST`)
+                            .then(liveTopic => console.log(`Channel (${channel.id})'s new topic is ${liveTopic.topic}`))
+                            .catch(console.error);
+                }
             })
         }
 
