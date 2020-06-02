@@ -2,6 +2,13 @@
 
 ---
 
+## 0.12.3
+*06/01/2020*
+
+- Remove topic monitor sleep delay since schedule is longer
+
+---
+
 ## 0.12.2
 *05/30/2020*
 
