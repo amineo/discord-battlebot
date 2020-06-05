@@ -53,10 +53,10 @@ exports.run = (client) => {
 
 }
 
-
+// 6 minute intervals
 exports.conf = {
     name: "t2-monitor",
     description: "Tribes 2 server traffic monitor. Traffic reports set as channel topics",
     enabled: true,
-    interval: 300001
+    interval: 360000
 };
