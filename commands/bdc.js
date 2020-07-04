@@ -13,12 +13,12 @@ exports.run = async (client, message, args) => {
 };
 
 exports.conf = {
-	enabled: false,
-	aliases: [ 'arena', 'duel' ]
+	enabled: true,
+	aliases: [ 'bcc', 'bpp', 'boot' ]
 };
 
 exports.help = {
-	name: 'ald',
-	description: "Shows detailed server stats for saKe's Arena Lak Duel",
-	usage: 'ald'
+	name: 'bdc',
+	description: "Shows detailed server stats for Boot's Dallas Classic",
+	usage: 'bdc'
 };
