@@ -2,6 +2,13 @@
 
 ---
 
+## 0.12.5
+*07/04/2020*
+
+- Update Boots server IP and minor cleanup
+
+---
+
 ## 0.12.3
 *06/01/2020*
 
