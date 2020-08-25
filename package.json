@@ -1,6 +1,6 @@
 {
 	"name": "discord-battlebot",
-	"version": "0.12.6",
+	"version": "0.12.7",
 	"description": "A friendly little bot that querys game server stats",
 	"main": "battlebot.js",
 	"engines": {
@@ -19,7 +19,14 @@
 		"url": "https://github.com/amineo/discord-battlebot/issues"
 	},
 	"homepage": "https://github.com/amineo/discord-battlebot#readme",
-	"keywords": [ "qstat", "discord", "bot", "tribes 2", "midair", "game server stats" ],
+	"keywords": [
+		"qstat",
+		"discord",
+		"bot",
+		"tribes 2",
+		"midair",
+		"game server stats"
+	],
 	"authors": {
 		"name": "Anthony Mineo",
 		"email": "anthonymineo@gmail.com",
