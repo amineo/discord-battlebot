@@ -24,8 +24,8 @@ const config = {
 			monitor: true
 		},
 		{
-			command: 'bdc',
-			ip: '67.222.138.15:28000',
+			command: 'bdp',
+			ip: '67.222.138.18:28000',
 			monitor: false
 		}
 	],

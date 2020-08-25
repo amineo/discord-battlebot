@@ -14,11 +14,11 @@ exports.run = async (client, message, args) => {
 
 exports.conf = {
 	enabled: true,
-	aliases: [ 'bcc', 'bpp', 'boot' ]
+	aliases: [ 'bcc', 'bpp', 'bdc', 'boot' ]
 };
 
 exports.help = {
-	name: 'bdc',
-	description: "Shows detailed server stats for Boot's Dallas Classic",
-	usage: 'bdc'
+	name: 'bdp',
+	description: "Shows detailed server stats for Boot's Dallas Paradise",
+	usage: 'bdp'
 };
