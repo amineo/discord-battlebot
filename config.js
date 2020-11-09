@@ -22,11 +22,6 @@ const config = {
 			command: 'pub',
 			ip: '67.222.138.16:28000',
 			monitor: true
-		},
-		{
-			command: 'bdp',
-			ip: '67.222.138.18:28000',
-			monitor: false
 		}
 	],
 	channels: {
