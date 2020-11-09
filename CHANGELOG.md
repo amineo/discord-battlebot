@@ -5,6 +5,13 @@
 ## 0.12.7
 *08/25/2020*
 
+- Remove Boot's server and minor cleanup
+
+---
+
+## 0.12.7
+*08/25/2020*
+
 - Update Boots's IP
 
 ---
