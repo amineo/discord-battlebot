@@ -20,7 +20,7 @@ exports.run = async (client, message, args) => {
     let discordTable = [];
     let discordMsg = {
       embed: {
-        title: "Tribes 2 Live Twitch Streams",
+        title: "Live Twitch Streams",
         color: 8615418,
         timestamp: lookupDate.toISOString(),
       },
