@@ -1,5 +1,5 @@
 const fetch = require("node-fetch");
-const moment = require("moment");
+const moment = require("moment-timezone");
 
 exports.run = async (client, message, args) => {
   await fetch("https://api.twitch.tv/kraken/streams/?game=Tribes%202", {
@@ -31,7 +31,9 @@ exports.run = async (client, message, args) => {
         name: `${stream.channel.display_name}`,
         value: `**[Watch Live](${stream.channel.url})**\n\`started: ${moment(
           stream.created_at
-        ).format("MMMM Do YYYY, h:mm:ss a")} EST\`\n--\n`,
+        )
+          .tz("America/New_York")
+          .format("MMMM Do YYYY, h:mm:ss a")} EST\`\n--\n`,
         inline: false,
       };
       discordTable.push(objServer);
