@@ -1,3 +1,4 @@
+const fetch = require("node-fetch");
 const QueryList = require("../modules/QueryList.js");
 const moment = require("moment-timezone");
 const sleep = (waitTimeInMs) =>
@@ -13,7 +14,26 @@ exports.run = (client) => {
 
   setInterval(async function () {
     // Add only if topic monitor is enabled for the server
-    let serverInfo = await queryServerList.queryList();
+    const serverInfo = await queryServerList.queryList();
+
+    const twitchStreams = await fetch(
+      "https://api.twitch.tv/kraken/streams/?game=Tribes%202",
+      {
+        method: "get",
+        headers: {
+          Accept: "application/vnd.twitchtv.v5+json",
+          "Client-Id": process.env.TWITCH_CLIENT_ID,
+        },
+      }
+    ).then((res) => res.json());
+
+    const twitchMessage =
+      twitchStreams.streams.length === 0
+        ? ""
+        : `- :tv: Streams: [${twitchStreams.streams.length}]`;
+
+    console.log(twitchMessage);
+
     let channelTopic = [];
 
     queryIteration++;
@@ -21,19 +41,26 @@ exports.run = (client) => {
     if (exports.conf.enabled) {
       serverInfo.forEach(function (server, i) {
         if (server.status === "online") {
-          let topic;
+          let topic = {
+            players: server.numplayers,
+          };
           if (server.numplayers >= 2) {
-            topic = `${server.command.toUpperCase()} [${server.numplayers} / ${
-              server.maxplayers
-            }] ${server.rules["mission"]} :: ${server.map}`;
+            topic["text"] = `${server.command.toUpperCase()} [${
+              server.numplayers
+            } / ${server.maxplayers}] ${server.rules["mission"]} :: ${
+              server.map
+            }`;
           } else {
-            topic = `${server.command.toUpperCase()} [${server.numplayers} / ${
-              server.maxplayers
-            }]`;
+            topic["text"] = `${server.command.toUpperCase()} [${
+              server.numplayers
+            } / ${server.maxplayers}]`;
           }
           channelTopic.push(topic);
         } else {
-          let topic = `${server.command.toUpperCase()} [DOWN]`;
+          let topic = {
+            players: 0,
+            text: `${server.command.toUpperCase()} [DOWN]`,
+          };
           channelTopic.push(topic);
           console.log("Having issues reaching server:" + server.command);
           console.log("Status:" + server.status);
@@ -51,15 +78,25 @@ exports.run = (client) => {
           .format("h:mm a");
 
         if (client.channels.get(channel.id)) {
+          let sortedTopicMonitors = [];
+
+          channelTopic = channelTopic.sort(function (a, b) {
+            return b.players - a.players;
+          });
+
+          channelTopic.map((monitor) => {
+            sortedTopicMonitors.push(monitor.text);
+          });
+
           client.channels
             .get(channel.id)
             .setTopic(
-              `${channelTopic
+              `${sortedTopicMonitors
                 .toString()
                 .replace(
                   ",",
                   " • "
-                )} - ${lookupDate} EST; Next lookup at ${nextLookupDate} EST`
+                )} ${twitchMessage} - ${lookupDate} EST; Next lookup at ${nextLookupDate} EST`
             )
             .then((liveTopic) =>
               console.log(
