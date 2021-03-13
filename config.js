@@ -7,7 +7,7 @@ if (process.env.NODE_ENV == "dev") {
   prefix = ["!devbot", "!dd", "!d"];
   roleIDSets = ["501753215151243265"];
 } else {
-  prefix = ["!battlebot", "!bb", "!b"];
+  prefix = ["!battlebot", "!bb", "!b", "!BB", "!B"];
   roleIDSets = ["501753215151243265", "501961027273883648"];
 }
 
@@ -20,11 +20,6 @@ const config = {
   t2ServerList: [
     {
       command: "pub",
-      ip: "67.222.138.16:28000",
-      monitor: true,
-    },
-    {
-      command: "taco",
       ip: "35.239.88.241:28000",
       monitor: true,
     },
