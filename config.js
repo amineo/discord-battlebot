@@ -23,6 +23,11 @@ const config = {
       ip: "35.239.88.241:28000",
       monitor: true,
     },
+    {
+      command: "20th",
+      ip: "67.222.138.46:28000",
+      monitor: true,
+    },
   ],
   channels: {
     t2: [
