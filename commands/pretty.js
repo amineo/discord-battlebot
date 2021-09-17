@@ -3,6 +3,7 @@ const { Attachment } = require('discord.js');
 exports.run = async (client, message, args) => {
 
   const cacheBust = new Date().getTime();
+  const config = client.config;
 /*
   let discordMsg = {
     "embed": { 
