@@ -2,6 +2,13 @@
 
 ---
 
+## -> 0.14.2
+*09/17/2021*
+
+- !bb pretty for a better query display experience
+
+---
+
 ## 0.12.7
 *08/25/2020*
 
