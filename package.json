@@ -4,7 +4,7 @@
 	"description": "A friendly little bot that querys game server stats",
 	"main": "battlebot.js",
 	"engines": {
-		"node": "16.13"
+		"node": "16.x"
 	},
 	"scripts": {
 		"preinstall": "cd qstat && ./autogen.sh",
