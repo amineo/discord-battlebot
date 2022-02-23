@@ -16,23 +16,25 @@ exports.run = (client) => {
     // Add only if topic monitor is enabled for the server
     const serverInfo = await queryServerList.queryList();
 
-    const twitchStreams = await fetch(
-      "https://api.twitch.tv/kraken/streams/?game=Tribes%202",
-      {
-        method: "get",
-        headers: {
-          Accept: "application/vnd.twitchtv.v5+json",
-          "Client-Id": process.env.TWITCH_CLIENT_ID,
-        },
-      }
-    ).then((res) => res.json());
+    // const twitchStreams = await fetch(
+    //   "https://api.twitch.tv/kraken/streams/?game=Tribes%202",
+    //   {
+    //     method: "get",
+    //     headers: {
+    //       Accept: "application/vnd.twitchtv.v5+json",
+    //       "Client-Id": process.env.TWITCH_CLIENT_ID,
+    //     },
+    //   }
+    // ).then((res) => res.json());
 
-    const twitchMessage =
-      twitchStreams.streams.length === 0
-        ? ""
-        : `- :tv: Streams: [${twitchStreams.streams.length}]`;
+    // const twitchMessage =
+    //   twitchStreams.streams.length === 0
+    //     ? ""
+    //     : `- :tv: Streams: [${twitchStreams.streams.length}]`;
 
-    console.log(twitchMessage);
+    // console.log(twitchMessage);
+
+    const twitchMessage = "";
 
     let channelTopic = [];
 
@@ -113,8 +115,7 @@ exports.run = (client) => {
 // 6 minute intervals
 exports.conf = {
   name: "t2-monitor",
-  description:
-    "Tribes 2 server traffic monitor. Traffic reports set as channel topics",
+  description: "Tribes 2 server traffic monitor. Traffic reports set as channel topics",
   enabled: true,
   interval: 360000,
 };
