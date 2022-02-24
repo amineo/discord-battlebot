@@ -1,7 +1,7 @@
 /*
  * BattleBot
  *
- * (c) Anthony Mineo <anthony@season4.io>
+ * (c) Anthony Mineo <anthonymineo@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -19,6 +19,17 @@ client.config = require('./config.js');
 require('./modules/utils.js')(client);
 
 
+const express = require('express');
+const app = express();
+const port = process.env.PORT || 3000;
+
+app.get('/', (req, res) => {
+  res.send('Healthy!')
+})
+
+app.listen(port, () => {
+  console.log(`BattleBot ${port}`)
+})
 
 
 if (!fs.existsSync('./storage')){

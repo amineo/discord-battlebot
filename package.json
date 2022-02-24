@@ -37,6 +37,7 @@
 	"license": "MIT",
 	"dependencies": {
 		"discord.js": "^11.6.4",
+		"express": "^4.17.3",
 		"forever": "^0.15.3",
 		"lokijs": "^1.5.1",
 		"moment": "^2.21.0",
