@@ -7,11 +7,10 @@ defmodule BattleBot.Commands.GameQuery.T2.Embed.ServerDetailed do
   alias BattleBot.{Helpers}
 
 
+  # Using embed
   def t2_server_detail_embed({:ok, result}, "image" = format) do
     cache_bust = :os.system_time(:millisecond)
-    server_name = :http_uri.encode(result.server_name)
-
-    # TODO: Clean this up lol
+    server_name = URI.encode(result.server_name)
 
     # TODO: Determine if we should return a message or an embed here.
     #
@@ -21,23 +20,39 @@ defmodule BattleBot.Commands.GameQuery.T2.Embed.ServerDetailed do
     #       It seems like using an embed would get around this since it returns
     #       the origin url and not cached from a discord url
 
+    image_url = "https://t2-server-xbar.herokuapp.com/#{cache_bust}/serverName/#{server_name}/padding/0/image.png"
 
-    # Note: using of single-quotes for binary
-    image_url = 'https://t2-server-xbar.herokuapp.com/#{cache_bust}/serverName/#{server_name}/padding/0/image.png'
-
-    # Image embed
-    # %Nostrum.Struct.Embed{}
-    #   |> put_image(image_url)
-
-    {:ok, resp} = :httpc.request(:get, {image_url, []}, [], [body_format: :binary])
-    {{_, 200, 'OK'}, _headers, image_body} = resp
-
-    %{
-      body: image_body,
-      name: "#{cache_bust}.png"
-    }
-
+    %Nostrum.Struct.Embed{}
+      |> put_author(result.server_name, nil, nil)
+      |> put_image(image_url)
   end
+
+  # Using message
+  # def t2_server_detail_embed({:ok, result}, "image" = format) do
+  #   cache_bust = :os.system_time(:millisecond)
+  #   server_name = :http_uri.encode(result.server_name)
+
+  #   # TODO: Determine if we should return a message or an embed here.
+  #   #
+  #   #       There could be a warmup issue when hitting the image endpoint
+  #   #       which would result in a "command error" since the timeout for
+  #   #       application commands is (a very generious /s) 3 seconds!
+  #   #       It seems like using an embed would get around this since it returns
+  #   #       the origin url and not cached from a discord url
+
+
+  #   # Note: using of single-quotes for binary
+  #   image_url = 'https://t2-server-xbar.herokuapp.com/#{cache_bust}/serverName/#{server_name}/padding/0/image.png'
+
+  #   {:ok, resp} = :httpc.request(:get, {image_url, []}, [], [body_format: :binary])
+  #   {{_, 200, 'OK'}, _headers, image_body} = resp
+
+  #   %{
+  #     body: image_body,
+  #     name: "#{cache_bust}.png"
+  #   }
+  # end
+
 
 
   def t2_server_detail_embed({:ok, result}, "raw" = format) do

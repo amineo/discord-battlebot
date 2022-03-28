@@ -200,26 +200,26 @@ defmodule BattleBot.Commands.GameQuery.T2 do
       |> query_server_list()
 
 
-    case qry_format do
-      "image" ->
-        %{
-          type: 4,
-          data: %{files: embed}
-        }
+    # TODO: Clean this up -- related to image message
+    # case qry_format do
+    #   "image" ->
+    #     %{
+    #       type: 4,
+    #       data: %{files: embed}
+    #     }
 
-      "raw" ->
-        %{
-          type: 4,
-          data: %{embeds: embed}
-        }
-    end
+    #   "raw" ->
+    #     %{
+    #       type: 4,
+    #       data: %{embeds: embed}
+    #     }
+    # end
 
 
-    # %{
-    #   type: 4,
-    #   data: %{embeds: embed}
-    # }
-
+    %{
+      type: 4,
+      data: %{embeds: embed}
+    }
 
   end
 end

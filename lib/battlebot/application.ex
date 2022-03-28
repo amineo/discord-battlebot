@@ -12,8 +12,8 @@ defmodule BattleBot.Application do
     ]
 
     # Using `httpc` so lets make sure we're starting inets and ssl
-    Application.ensure_all_started(:inets)
-    Application.ensure_all_started(:ssl)
+    # Application.ensure_all_started(:inets)
+    # Application.ensure_all_started(:ssl)
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
