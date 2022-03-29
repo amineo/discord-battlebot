@@ -87,7 +87,8 @@ defmodule BattleBot.Commands.GameQuery.T2 do
   This function wraps that module and handles the responses accordingly.
   """
   def handle_query(ip, port) do
-    case T2ServerQuery.query(ip, port, 1_100) do
+    query_timeout = 550
+    case T2ServerQuery.query(ip, port, query_timeout) do
       {:ok, result} -> {:ok, result}
       {:error, reason} -> {:error, reason}
     end

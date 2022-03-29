@@ -5,3 +5,6 @@ config :battlebot,
 
 config :logger,
   level: :debug
+
+
+import_config "t2_servers.dev.exs"

@@ -5,3 +5,6 @@ config :battlebot,
 
 config :logger,
   level: :info
+
+
+import_config "t2_servers.prod.exs"

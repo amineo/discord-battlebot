@@ -16,19 +16,5 @@ config :battlebot,
       nickname: "20th",
       value: "67.222.138.46\:28000",
       monitor: true
-    },
-    %{
-      type: 3,
-      name: "~VeryScary Aim Training~",
-      nickname: "VSAT",
-      value: "148.170.171.67\:28000",
-      monitor: false
-    },
-    %{
-      type: 3,
-      name: "~Test~ TEMP Non-responsive server",
-      nickname: "VSAT",
-      value: "148.170.171.67\:28888",
-      monitor: false
     }
   ]

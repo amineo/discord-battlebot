@@ -26,4 +26,3 @@ config :logger, :console,
 
 import_config "#{Mix.env()}.exs"
 import_config "t2_scheduler.exs"
-import_config "t2_servers.exs"
