@@ -8,19 +8,19 @@ defmodule BattleBot.Interactions do
   alias Nostrum.Struct.Interaction
 
   alias BattleBot.Helpers
-  alias BattleBot.Commands.Info
-  alias BattleBot.Commands.GameQuery
+  alias BattleBot.Commands.{Info, GameQuery, GuildEvents}
 
   @doc """
   `reguster_commands`
-  Register a modules command by importing `get_command/0` and
-  adding to the list
+  Register a modules command by importing `get_command/0` and adding to the list.
+  This is what actually enables the slash command module
   """
   @spec register_commands() :: any()
   def register_commands do
     [
       Info.get_command(),
-      GameQuery.get_command()
+      GameQuery.get_command(),
+      GuildEvents.get_command()
     ]
     |> Enum.filter(&(!is_nil(&1)))
     |> register_commands(Application.fetch_env!(:battlebot, :environment))
@@ -91,6 +91,9 @@ defmodule BattleBot.Interactions do
 
   defp call_interaction(interaction, {"query", opt}),
     do: GameQuery.handle_interaction(interaction, opt)
+
+  defp call_interaction(interaction, {"events", opt}),
+    do: GuildEvents.handle_interaction(interaction, opt)
 
   defp call_interaction(_interaction, _data),
     do: raise("Unknown command!")
