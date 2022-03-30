@@ -1,12 +1,17 @@
 defmodule BattleBot.InteractionBehaviour do
   @moduledoc """
-  Behaviour for handling Discord interactions, through slash commands or components
+  Behaviour for handling Discord interactions, through slash commands or components.
+
+  The @callbacks are *required* functions that need to exist in any module
+  that calls @impl BattleBot.InteractionBehaviour
+
   """
 
   alias Nostrum.Struct.{ApplicationCommand, Interaction}
 
   @type interaction_options :: list(%{name: String.t(), value: any(), options: any(), focused: bool()})
   @type interaction_input :: {String.t(), interaction_options()}
+
 
   @doc """
   Returns the object defining the slash command to be created.
@@ -18,5 +23,4 @@ defmodule BattleBot.InteractionBehaviour do
   Parses the current interaction, returning the interaction response to be sent to Discord
   """
   @callback handle_interaction(Interaction.t(), interaction_options()) :: map()
-  @callback handle_sub_command(Interaction.t(), interaction_options()) :: map()
 end

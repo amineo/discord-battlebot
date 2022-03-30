@@ -4,7 +4,6 @@ defmodule BattleBot.Commands.GameQuery.T2 do
   """
   require Logger
 
-  import Nostrum.Struct.Embed
   import BattleBot.Commands.GameQuery.T2.Embed.ServerDetailed
   import BattleBot.Commands.GameQuery.T2.Embed.ServerList
 
@@ -14,7 +13,7 @@ defmodule BattleBot.Commands.GameQuery.T2 do
   @behaviour InteractionBehaviour
 
   @doc """
-  `get_sub_command_map`
+  `get_command`
   Generate the `/query t2 ...` application commands/options
   The list of servers gets retrieved from `config/t2_servers.exs`
 
@@ -31,8 +30,8 @@ defmodule BattleBot.Commands.GameQuery.T2 do
             > raw
   """
   @impl BattleBot.InteractionBehaviour
-  @spec get_sub_command_map() :: ApplicationCommand.application_command_map()
-  def get_sub_command_map do
+  @spec get_command() :: ApplicationCommand.application_command_map()
+  def get_command() do
     {:ok, t2_servers} = Application.fetch_env(:battlebot, :t2_servers)
 
     %{
@@ -120,7 +119,7 @@ defmodule BattleBot.Commands.GameQuery.T2 do
     {nil, %{name: "format"}}
   ```
   """
-  defp query_format({:ok, opt} = format) do
+  defp query_format({:ok, opt} = _format) do
     opt.value
   end
 
@@ -160,6 +159,7 @@ defmodule BattleBot.Commands.GameQuery.T2 do
 
   If `list` has items, return back the already queried servers
   """
+  @spec query_server_list(list()) :: list()
   defp query_server_list(list) when list == [] do
     Application.fetch_env!(:battlebot, :t2_servers)
     |> Enum.map(fn server ->
@@ -181,7 +181,7 @@ defmodule BattleBot.Commands.GameQuery.T2 do
   """
   @impl InteractionBehaviour
   @spec handle_interaction(Interaction.t(), InteractionBehaviour.interaction_options()) :: map()
-  def handle_interaction(interaction, [%{:name => "t2"}] = options) do
+  def handle_interaction(_interaction, [%{:name => "t2"}] = options) do
     qry_format =
       Helpers.get_option(options, "format")
       |> query_format()

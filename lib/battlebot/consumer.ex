@@ -12,18 +12,17 @@ defmodule BattleBot.Consumer do
 
   alias BattleBot.Interactions
 
-  @command BattleBot.get_command_prefix!()
+  #@command BattleBot.get_command_prefix!()
 
   def start_link do
     Consumer.start_link(__MODULE__)
   end
 
-  @doc """
-  Handles the `:MESSAGE_CREATE` event. If it is
-  seen as a command crated from an user, it will
-  parse it to the command module.
-  """
-
+  # @doc """
+  # Handles the `:MESSAGE_CREATE` event. If it is
+  # seen as a command crated from an user, it will
+  # parse it to the command module.
+  # """
   # def handle_event({:MESSAGE_CREATE, message, _ws_state}) do
   #   if !message.author.bot and is_bb_command?(message),
   #     do: BattleBot.Command.handle_message(message)
@@ -46,25 +45,23 @@ defmodule BattleBot.Consumer do
     Interactions.handle_interaction(interaction)
   end
 
-  @doc """
-  This only exists so that when an uncaptured event is
-  created the bot won't create an error!
-  """
+  # This only exists so that when an uncaptured event is
+  # created the bot won't create an error!
   def handle_event(_event) do
     :noop
   end
 
-  @doc """
-  `is_bb_command`
-  Check whether a message is an BattleBot command.
+  # @doc """
+  # `is_bb_command`
+  # Check whether a message is an BattleBot command.
 
-  ** Will probably be deprecated since we're only using slash commands
-  """
-  def is_bb_command?(message) do
-    message.content
-    |> String.downcase()
-    |> String.split(" ")
-    |> Enum.at(0)
-    |> String.equivalent?(@command)
-  end
+  # ** Will probably be deprecated since we're only using slash commands
+  # """
+  # def is_bb_command?(message) do
+  #   message.content
+  #   |> String.downcase()
+  #   |> String.split(" ")
+  #   |> Enum.at(0)
+  #   |> String.equivalent?(@command)
+  # end
 end

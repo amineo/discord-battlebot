@@ -4,7 +4,7 @@ defmodule BattleBot.Commands.GuildEvents do
   List scheduled events for a Discord server
   """
 
-
+  alias Nostrum.Struct.{ApplicationCommand, Interaction}
   alias BattleBot.InteractionBehaviour
 
   @behaviour InteractionBehaviour

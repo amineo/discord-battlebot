@@ -39,10 +39,10 @@ defmodule BattleBot.Helpers do
 
   # [%{focused: nil, name: "server", options: nil, value: "35.239.88.241:28000"}]
   @spec get_option(InteractionBehaviour.interaction_options(), String.t()) ::
-          {String.t(), boolean()}
-  def get_option(options, name) when is_nil([options.options]) do
-    find_option(options, name)
-  end
+          {:ok | nil, String.t() | map()}
+  # def get_option(options, name) when [options.options] == [] do
+  #   find_option(options, name)
+  # end
 
   # Has nested (2nd lvl) options
   def get_option(options, name) do
@@ -55,7 +55,7 @@ defmodule BattleBot.Helpers do
   end
 
   @spec find_option(InteractionBehaviour.interaction_options(), String.t()) ::
-          {String.t(), boolean()}
+          {:ok | nil, String.t() | map()}
   defp find_option(options, name) do
     case Enum.find(options, fn opt -> opt.name == name end) do
       nil ->
@@ -73,7 +73,7 @@ defmodule BattleBot.Helpers do
     |> String.downcase()
   end
 
-  @spec parse_ip_port(String.t()) :: {String.t(), Integer.t()}
+  @spec parse_ip_port(String.t()) :: {String.t(), integer()}
   def parse_ip_port(server, default_port \\ 28_000) do
     [ip | tail] = String.split(server, ":")
 

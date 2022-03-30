@@ -3,8 +3,8 @@ defmodule BattleBot.Commands.Info do
   Handles /info
   Returns some info about the bot
   """
-
   import Nostrum.Struct.Embed
+  alias Nostrum.Struct.Embed
   alias Nostrum.Struct.{ApplicationCommand, Interaction}
 
   alias BattleBot.InteractionBehaviour
@@ -23,7 +23,7 @@ defmodule BattleBot.Commands.Info do
   @spec handle_interaction(Interaction.t(), InteractionBehaviour.interaction_options()) :: map()
   def handle_interaction(_interaction, _options) do
     embed =
-      %Nostrum.Struct.Embed{}
+      %Embed{}
       |> put_author("BattleBot v#{Application.spec(:battlebot, :vsn) |> to_string()}", nil, nil)
       |> put_field("Uptime", uptime(), true)
       |> put_field("Processes", "#{length(:erlang.processes())}", true)
@@ -36,6 +36,8 @@ defmodule BattleBot.Commands.Info do
       data: %{embeds: [embed]}
     }
   end
+
+
 
   defp uptime do
     {time, _} = :erlang.statistics(:wall_clock)
