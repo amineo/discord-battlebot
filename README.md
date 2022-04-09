@@ -61,21 +61,41 @@
 ## About This Project
 
 BattleBot [v1](https://github.com/amineo/discord-battlebot/tree/v1-node) was initially written in Node around Fall 2017 
-for the [Tribes 2 Discord](https://discord.gg/Y4muNvF) community, allowing users to query Tribes 2 servers in real-time. 
+for the [Tribes 2 Discord](https://discord.gg/Y4muNvF) community, allowing users to query Tribes 2 servers in real-time.   
+
 As BattleBot's feature set grew (*some being experimental*), so did its complexity. With BattleBot evolving, therein lies the 
 opportunity to learn more Elixir and completely rewrite BattleBot, and its [Tribes 2 server query engine](https://github.com/amineo/t2_server_query_elixir). 
 Previously, the query engine was using [qstat](https://github.com/Unity-Technologies/qstat). 
-BattleBot's core is even more modular, including the ability to handle more games, with Tribes 2 being the first.
+BattleBot's core is now even more modular, including the ability to handle more games, with Tribes 2 being the first.
 
 ### Features
 #### Application (Slash) Commands
-`TODO`
+
+| Slash Command | Description |
+| :---          |    :----   |
+| `/query t2`   | Query options: `server`, `ip`, `format`. If a server or IP option is not selected, BattleBot will query all servers configured in [config/t2_servers.exs](config/t2_servers.exs) and output the results in an embedded list. |
+| | `> server` : Select from a list of predefined servers     |
+| | `> ip` : Manually enter a server's IP:PORT to be queried  |
+| | `> format` : Output options: `image` *(default)*, `raw`   |
+| `/events`     | List server events          |
+| `/info`       | Info about BattleBot        |
+
+
+#### Ephemeral Message Responses
+By default, any response BattleBot yields with will automatically be deleted after 5 minutes have passed. This keeps the chat and query outputs tidy. :)
+
+The default message timeout is configurable in [config/config.exs](config/config.exs). This will eventually be an option you can pass into any `/query` command to set a custom timeout.
+
 
 #### Server Topic Monitoring
-`TODO`
+`Coming soon`
 
 ### Built With
-`TODO`
+- [Elixir](https://elixir-lang.org/)
+- [Nostrum](https://github.com/Kraigie/nostrum)
+- T2ServerQuery: [Repo](https://github.com/amineo/t2_server_query_elixir) &#8226; [Docs](https://hexdocs.pm/t2_server_query)
+- [t2-server-image](https://github.com/exogen/t2-server-xbar/tree/main/packages/t2-server-image)
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 <!-- /About This Project -->
@@ -83,7 +103,8 @@ BattleBot's core is even more modular, including the ability to handle more game
 
 
 ## Supported Games
-`TODO`
+- Tribes 2
+- *Suggest your favorite title :)* 
 <p align="right">(<a href="#top">back to top</a>)</p>
 <!-- /Supported Games -->
 
@@ -97,8 +118,11 @@ BattleBot's core is even more modular, including the ability to handle more game
 
 ## Contributing
 `TODO`
+- credo
+- dialyzer
+- `mix test`
 ### Getting Started
-`TODO`
+`TODO:  `  ` iex -S mix`
 #### Prerequisites
 `TODO`
 #### Installation
@@ -108,11 +132,11 @@ BattleBot's core is even more modular, including the ability to handle more game
 <!-- /Contributing -->
 
 ## Acknowledgments
-* @exogen: [t2-server-image](https://github.com/exogen/t2-server-xbar/tree/main/packages/t2-server-image)
-* @ChocoTaco1: [https://github.com/ChocoTaco1/TacoServer](https://github.com/ChocoTaco1/TacoServer), BattleBot Logo
-* The Tribes 2 Community
-* T2ServerQuery: [Repo](https://github.com/amineo/t2_server_query_elixir) &#8226; [Docs](https://hexdocs.pm/t2_server_query)
-* [Nostrum](https://github.com/Kraigie/nostrum)
+- @exogen: [t2-server-image](https://github.com/exogen/t2-server-xbar/tree/main/packages/t2-server-image)
+- @ChocoTaco1: [https://github.com/ChocoTaco1/TacoServer](https://github.com/ChocoTaco1/TacoServer), BattleBot Logo
+- The Tribes 2 Community
+- T2ServerQuery: [Repo](https://github.com/amineo/t2_server_query_elixir) &#8226; [Docs](https://hexdocs.pm/t2_server_query)
+- [Nostrum](https://github.com/Kraigie/nostrum)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 <!-- /Acknowledgments -->
