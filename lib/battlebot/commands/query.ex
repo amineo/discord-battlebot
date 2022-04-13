@@ -13,6 +13,8 @@ defmodule BattleBot.Commands.GameQuery do
         -- format
             > image
             > raw
+  /info "Info about BB"
+  / events "List server events"
   """
   require Logger
 
