@@ -23,7 +23,7 @@ defmodule Battlebot.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:t2_server_query, "~> 0.1.2"},
+      {:t2_server_query, "~> 0.1.3"},
       # Discord API Lib {:nostrum, github: "Kraigie/nostrum"}
       {:nostrum, "~> 0.5.1"},
       # Misc
