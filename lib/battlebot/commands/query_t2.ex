@@ -94,31 +94,28 @@ defmodule BattleBot.Commands.GameQuery.T2 do
   end
 
 
-
-  @doc """
-  `query_format`
-  Return the selected or a fallback default query output format.
-
-  The default query output format is specified in `config/confix.exs`
-  `:battlebot, :default_query_format: "image"`
-
-  Shape of data with format option:
-  ```
-    {:ok,
-      %Nostrum.Struct.ApplicationCommandInteractionDataOption{
-        focused: nil,
-        name: "format",
-        options: nil,
-        type: 3,
-        value: "image"
-    }}
-  ```
-
-  Shape of data with no format option:
-  ```
-    {nil, %{name: "format"}}
-  ```
-  """
+  # `query_format`
+  # Return the selected or a fallback default query output format.
+  #
+  # The default query output format is specified in `config/confix.exs`
+  # `:battlebot, :default_query_format: "image"`
+  #
+  # Shape of data with format option:
+  # ```
+  #   {:ok,
+  #     %Nostrum.Struct.ApplicationCommandInteractionDataOption{
+  #       focused: nil,
+  #       name: "format",
+  #       options: nil,
+  #       type: 3,
+  #       value: "image"
+  #   }}
+  # ```
+  #
+  # Shape of data with no format option:
+  # ```
+  #   {nil, %{name: "format"}}
+  # ```
   defp query_format({:ok, opt} = _format) do
     opt.value
   end
@@ -129,11 +126,9 @@ defmodule BattleBot.Commands.GameQuery.T2 do
 
 
 
-  @doc """
-  `query_target`
-  Determine if we're targeting a server listed from `t2_servers.exs`
-  or if its a manual IP entry
-  """
+  # `query_target`
+  # Determine if we're targeting a server listed from `t2_servers.exs`
+  # or if its a manual IP entry
   defp query_target(%{:name => "server"} = option, format) do
     {ip, port} = Helpers.parse_ip_port(option.value)
 
@@ -151,14 +146,11 @@ defmodule BattleBot.Commands.GameQuery.T2 do
 
 
 
-
-  @doc """
-  `query_server_list`
-  If `list` gets passed in as an empty array, a server list query will be performed.
-  `query_server_list(list) when list == []`
-
-  If `list` has items, return back the already queried servers
-  """
+  # `query_server_list`
+  # If `list` gets passed in as an empty array, a server list query will be performed.
+  # `query_server_list(list) when list == []`
+  #
+  # If `list` has items, return back the already queried servers
   @spec query_server_list(list()) :: list()
   defp query_server_list(list) when list == [] do
     Application.fetch_env!(:battlebot, :t2_servers)
@@ -174,6 +166,8 @@ defmodule BattleBot.Commands.GameQuery.T2 do
     # Return the already queried servers
     list
   end
+
+
 
   @doc """
   `handle_interaction`

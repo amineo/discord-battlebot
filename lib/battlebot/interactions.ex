@@ -45,7 +45,7 @@ defmodule BattleBot.Interactions do
 
   TODO: Make this an option that a user can specifiy for each interaction
   """
-  defp cleanup_interaction(interaction) do
+  def cleanup_interaction(interaction) do
     {:ok, message_timeout} = Application.fetch_env(:battlebot, :message_timeout)
     Process.sleep(message_timeout)
 
