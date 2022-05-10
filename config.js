@@ -25,7 +25,7 @@ const config = {
     },
     {
       command: "20th",
-      ip: "67.222.138.46:28000",
+      ip: "144.48.104.138:28000",
       monitor: true,
     },
   ],
