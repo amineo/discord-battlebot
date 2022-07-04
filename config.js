@@ -26,12 +26,12 @@ const config = {
     {
       command: "aim",
       ip: "148.170.171.67:28000",
-      monitor: true,
+      monitor: false,
     },
     {
       command: "zy",
       ip: "67.188.157.237:28000",
-      monitor: true,
+      monitor: false,
     },
   ],
   channels: {
