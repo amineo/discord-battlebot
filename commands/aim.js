@@ -23,11 +23,11 @@ exports.run = async (client, message, args) => {
 
 exports.conf = {
   enabled: true,
-  aliases: ["pug"],
+  aliases: ["aim"],
 };
 
 exports.help = {
-  name: "20th",
-  description: "Shows detailed server stats for 20th PUG server",
-  usage: "20th",
+  name: "aim",
+  description: "Very Scary's Aim Training",
+  usage: "aim",
 };

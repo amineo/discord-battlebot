@@ -24,8 +24,13 @@ const config = {
       monitor: true,
     },
     {
-      command: "20th",
-      ip: "144.48.104.138:28000",
+      command: "aim",
+      ip: "148.170.171.67:28000",
+      monitor: true,
+    },
+    {
+      command: "zy",
+      ip: "67.188.157.237:28000",
       monitor: true,
     },
   ],
