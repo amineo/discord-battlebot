@@ -29,9 +29,9 @@ const config = {
       monitor: false,
     },
     {
-      command: "zy",
-      ip: "67.188.157.237:28000",
-      monitor: false,
+      command: "lg",
+      ip: "67.222.138.13:28000",
+      monitor: true,
     },
   ],
   channels: {

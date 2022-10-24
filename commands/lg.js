@@ -23,11 +23,11 @@ exports.run = async (client, message, args) => {
 
 exports.conf = {
   enabled: true,
-  aliases: ["zy", "arena", "duel", "siege"],
+  aliases: ["lg", "lastgasp"],
 };
 
 exports.help = {
-  name: "zy",
-  description: "Zy | Arena Duel TG Siege",
-  usage: "zy",
+  name: "lg",
+  description: "Lastgasp Jetsports",
+  usage: "lg",
 };
