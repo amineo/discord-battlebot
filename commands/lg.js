@@ -23,7 +23,7 @@ exports.run = async (client, message, args) => {
 
 exports.conf = {
   enabled: true,
-  aliases: ["lg", "lastgasp"],
+  aliases: ["lastgasp"],
 };
 
 exports.help = {
