@@ -21,7 +21,7 @@ const config = {
     {
       command: "pub",
       ip: "35.239.88.241:28000",
-      monitor: true,
+      monitor: false,
     },
     {
       command: "aim",
@@ -31,7 +31,7 @@ const config = {
     {
       command: "lg",
       ip: "67.222.138.13:28000",
-      monitor: true,
+      monitor: false,
     },
   ],
   channels: {
