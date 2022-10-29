@@ -1,6 +1,6 @@
 # fly.toml file generated for battlebot-v1 on 2022-02-23T11:29:46-05:00
 
-app = "battlebot-v1"
+app = "battlebot-node"
 
 kill_signal = "SIGINT"
 kill_timeout = 5
