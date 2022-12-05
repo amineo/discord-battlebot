@@ -27,7 +27,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: "aim",
-  description: "Very Scary's Aim Training",
-  usage: "aim",
+  name: "euro",
+  description: "Euro Server",
+  usage: "euro",
 };

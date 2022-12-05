@@ -27,6 +27,11 @@ const config = {
       command: "aim",
       ip: "148.170.171.67:28000",
       monitor: false,
+    },
+    {
+      command: "euro",
+      ip: "34.141.163.112:28000",
+      monitor: false,
     }
   ],
   channels: {
