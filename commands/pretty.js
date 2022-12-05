@@ -11,7 +11,7 @@ exports.run = async (client, message, args) => {
       "url": "https://stats.playt2.com",
       "color": 7134102,
       "image": {
-        "url": `https://t2-server-xbar.herokuapp.com/?t=${cacheBust}&padding=0`,
+        "url": `https://t2-server.fly.dev/?t=${cacheBust}&padding=0`,
       },
       "timestamp": new Date(),
     }
@@ -20,7 +20,7 @@ exports.run = async (client, message, args) => {
 */
 
 
- const attachment = new Attachment(`http://t2-server-xbar.herokuapp.com/${cacheBust}/serverName/Discord%20PUB/padding/0/image.png`, `${cacheBust}.png`);
+ const attachment = new Attachment(`https://t2-server.fly.dev/${cacheBust}/serverName/Discord%20PUB/padding/0/image.png`, `${cacheBust}.png`);
  await message.channel.send('', {files: [attachment]}).then( function(botmessage){
   let customTimeout;
 
