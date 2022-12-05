@@ -27,12 +27,7 @@ const config = {
       command: "aim",
       ip: "148.170.171.67:28000",
       monitor: false,
-    },
-    {
-      command: "lg",
-      ip: "67.222.138.13:28000",
-      monitor: true,
-    },
+    }
   ],
   channels: {
     t2: [
