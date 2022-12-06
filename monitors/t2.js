@@ -92,14 +92,7 @@ exports.run = (client) => {
 
           client.channels
             .get(channel.id)
-            .setTopic(
-              `${sortedTopicMonitors
-                .toString()
-                .replace(
-                  ",",
-                  " • "
-                )} ${twitchMessage} - ${lookupDate} EST; Next lookup at ${nextLookupDate} EST`
-            )
+            .setTopic(`${sortedTopicMonitors.toString().replace(","," • ")} - ${lookupDate} EST; Next lookup at ${nextLookupDate} EST`)
             .then((liveTopic) =>
               console.log(
                 `Channel (${channel.id})'s new topic is ${liveTopic.topic}`

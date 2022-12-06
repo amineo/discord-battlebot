@@ -31,7 +31,7 @@ const config = {
     {
       command: "euro",
       ip: "34.141.163.112:28000",
-      monitor: false,
+      monitor: true,
     }
   ],
   channels: {
