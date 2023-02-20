@@ -1,5 +1,5 @@
-const fetch = require("node-fetch");
 const QueryList = require("../modules/QueryList.js");
+const Twitch = require('../modules/Twitch.js');
 const moment = require("moment-timezone");
 const sleep = (waitTimeInMs) =>
   new Promise((resolve) => setTimeout(resolve, waitTimeInMs));
@@ -13,28 +13,20 @@ exports.run = (client) => {
   let queryIteration = 0;
 
   setInterval(async function () {
+    const twitch = new Twitch();
+    const streams = await twitch.getT2Streams();
+
+    const twitchMessage = streams.data.length === 0
+        ? ""
+        : `- :tv: Streams: [${streams.data.length}]`;
+
+    console.log(twitchMessage);
+
+
     // Add only if topic monitor is enabled for the server
     const serverInfo = await queryServerList.queryList();
 
-    // const twitchStreams = await fetch(
-    //   "https://api.twitch.tv/kraken/streams/?game=Tribes%202",
-    //   {
-    //     method: "get",
-    //     headers: {
-    //       Accept: "application/vnd.twitchtv.v5+json",
-    //       "Client-Id": process.env.TWITCH_CLIENT_ID,
-    //     },
-    //   }
-    // ).then((res) => res.json());
 
-    // const twitchMessage =
-    //   twitchStreams.streams.length === 0
-    //     ? ""
-    //     : `- :tv: Streams: [${twitchStreams.streams.length}]`;
-
-    // console.log(twitchMessage);
-
-    const twitchMessage = "";
 
     let channelTopic = [];
 
@@ -92,7 +84,16 @@ exports.run = (client) => {
 
           client.channels
             .get(channel.id)
-            .setTopic(`${sortedTopicMonitors.toString().replace(","," • ")} - ${lookupDate} EST; Next lookup at ${nextLookupDate} EST`)
+           // .setTopic(`${sortedTopicMonitors.toString().replace(","," • ")} - ${lookupDate} EST; Next lookup at ${nextLookupDate} EST`)
+            .setTopic(
+              `${sortedTopicMonitors
+                .toString()
+                .replace(
+                  ",",
+                  " • "
+                )} ${twitchMessage} - ${lookupDate} EST; Next lookup at ${nextLookupDate} EST`
+            )
+
             .then((liveTopic) =>
               console.log(
                 `Channel (${channel.id})'s new topic is ${liveTopic.topic}`

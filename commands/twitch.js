@@ -1,45 +1,39 @@
-const fetch = require("node-fetch");
 const moment = require("moment-timezone");
 
 exports.run = async (client, message, args) => {
-  await fetch("https://api.twitch.tv/kraken/streams/?game=Tribes%202", {
-    method: "get",
-    headers: {
-      Accept: "application/vnd.twitchtv.v5+json",
-      "Client-Id": process.env.TWITCH_CLIENT_ID,
-    },
-  })
-    .then((res) => res.json())
-    .then((streams) => displaySummary(streams));
+  const Twitch = require('../modules/Twitch.js');
+  const twitch = new Twitch();
+  const streams = await twitch.getT2Streams();
 
-  function displaySummary(streams) {
-    console.log(streams);
+  if(streams.data.length === 0) {
+    message.channel.send(`No streams found :(`);
+    return;
+  }
 
-    let twitchStreams = streams.streams;
-    let lookupDate = new Date();
-    let discordTable = [];
-    let discordMsg = {
+  streams.data.forEach(function (stream) {
+    const thumbnail_url = stream.thumbnail_url.replace( /{width}x{height}/g, '480x270' );
+    const discordMsg = {
       embed: {
-        title: "Live Twitch Streams",
-        color: 8615418,
-        timestamp: lookupDate.toISOString(),
-      },
-    };
+        "type": "rich",
+        "title": stream.title,
+        "description": '',
+        "color": 0x9246ff,
+        "timestamp": moment(stream.started_at),
+        "image": {
+          "url": thumbnail_url,
+          "height": 480,
+          "width": 270
+        },
+        "author": {
+          "name": stream.user_name
+        },
+        "footer": {
+          "text": `Tribes 2`
+        },
+        "url": `https://twitch.tv/${stream.user_login}`
+      }
+    }
 
-    twitchStreams.forEach(function (stream) {
-      let objServer = {
-        name: `${stream.channel.display_name}`,
-        value: `**[Watch Live](${stream.channel.url})**\n\`started: ${moment(
-          stream.created_at
-        )
-          .tz("America/New_York")
-          .format("MMMM Do YYYY, h:mm:ss a")} EST\`\n--\n`,
-        inline: false,
-      };
-      discordTable.push(objServer);
-    });
-
-    discordMsg["embed"]["fields"] = discordTable;
 
     message.channel.send(discordMsg).then(function (botmessage) {
       let customTimeout;
@@ -61,11 +55,11 @@ exports.run = async (client, message, args) => {
         customTimeout ? customTimeout : client.config.messageDeleteTimer.bot
       );
     });
-  }
+  });
 };
 
 exports.conf = {
-  enabled: false,
+  enabled: true,
   aliases: ["streams"],
 };
 
