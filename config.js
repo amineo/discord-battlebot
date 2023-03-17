@@ -30,7 +30,7 @@ const config = {
     },
     {
       command: "euro",
-      ip: "34.141.163.112:28000",
+      ip: "45.76.130.208:28000",
       monitor: true,
     }
   ],
