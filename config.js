@@ -20,7 +20,7 @@ const config = {
   t2ServerList: [
     {
       command: "pub",
-      ip: "35.239.88.241:28000",
+      ip: "67.222.138.13:28000",
       monitor: true,
     },
     {
@@ -31,7 +31,7 @@ const config = {
     {
       command: "euro",
       ip: "45.76.130.208:28000",
-      monitor: true,
+      monitor: false,
     }
   ],
   channels: {
@@ -46,6 +46,11 @@ const config = {
         notifyID: "501961027273883648",
         description: "Tribes 2 Discord: #chat",
       },
+      {
+        id: "961658540223770704",
+        notifyID: "501753215151243265",
+        description: "Tribes 2 Discord: #chat",
+      },      
     ],
     midair: [
       {
