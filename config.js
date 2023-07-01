@@ -22,16 +22,6 @@ const config = {
       command: "pub",
       ip: "67.222.138.13:28000",
       monitor: true,
-    },
-    {
-      command: "aim",
-      ip: "148.170.171.67:28000",
-      monitor: false,
-    },
-    {
-      command: "euro",
-      ip: "45.76.130.208:28000",
-      monitor: false,
     }
   ],
   channels: {
