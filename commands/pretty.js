@@ -20,7 +20,7 @@ exports.run = async (client, message, args) => {
 */
 
 
- const attachment = new Attachment(`https://t2-server.fly.dev/${cacheBust}/serverName/TRIBES%202%20PUBLIC/padding/0/image.png`, `${cacheBust}.png`);
+ const attachment = new Attachment(`https://t2-server.fly.dev/${cacheBust}/serverName/24%2F7%20Tribes/padding/0/image.png`, `${cacheBust}.png`);
  await message.channel.send('', {files: [attachment]}).then( function(botmessage){
   let customTimeout;
 
