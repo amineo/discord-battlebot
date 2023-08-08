@@ -20,7 +20,7 @@ const config = {
   t2ServerList: [
     {
       command: "pub",
-      ip: "67.222.138.13:28000",
+      ip: "34.170.203.111:28000",
       monitor: true,
     }
   ],
