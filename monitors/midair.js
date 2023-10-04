@@ -25,8 +25,8 @@ exports.run = async (client) => {
 
 
                 client.config.channels.midair.forEach(function (channel) {
-                    if (client.channels.get(channel.id)) {
-                        client.channels.get(channel.id).setTopic(`Active Players: ${playerCount} - [${lookupDate} EST]`)
+                    if (client.channels.cache.get(channel.id)) {
+                        client.channels.cache.get(channel.id).setTopic(`Active Players: ${playerCount} - [${lookupDate} EST]`)
                             .then(liveTopic => console.log(`Channel (${channel.id})'s new topic is ${liveTopic.topic}`))
                             .catch(console.error);
                     }

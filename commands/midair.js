@@ -47,8 +47,8 @@ exports.run = async (client, message, args) => {
             };
 
             // cleanup messages after 5 minutes
-            message.delete(customTimeout ? customTimeout : client.config.messageDeleteTimer.command);
-            botmessage.delete(customTimeout ? customTimeout : client.config.messageDeleteTimer.bot);
+            message.delete({timeout: customTimeout ? customTimeout : client.config.messageDeleteTimer.command});
+            botmessage.delete({timeout: customTimeout ? customTimeout : client.config.messageDeleteTimer.bot});
         });
 
     }

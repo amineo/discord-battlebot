@@ -1,4 +1,4 @@
-const { Attachment } = require('discord.js');
+const { MessageAttachement } = require('discord.js');
 
 exports.run = async (client, message, args) => {
 
@@ -20,7 +20,11 @@ exports.run = async (client, message, args) => {
 */
 
 
- const attachment = new Attachment(`https://t2-server.fly.dev/${cacheBust}/serverName/24%2F7%20Tribes/padding/0/image.png`, `${cacheBust}.png`);
+// const attachment = new MessageAttachement(`https://t2-server.fly.dev/${cacheBust}/serverName/24%2F7%20Tribes/padding/0/image.png`, `${cacheBust}.png`);
+
+
+const attachment = `https://t2-server.fly.dev/${cacheBust}/serverName/24%2F7%20Tribes/padding/0/image.png`;
+
  await message.channel.send('', {files: [attachment]}).then( function(botmessage){
   let customTimeout;
 
@@ -34,8 +38,8 @@ exports.run = async (client, message, args) => {
   };
 
   // cleanup messages after 5 minutes
-  message.delete(customTimeout ? customTimeout : config.messageDeleteTimer.command);
-  botmessage.delete(customTimeout ? customTimeout : config.messageDeleteTimer.bot);
+  message.delete({timeout: customTimeout ? customTimeout : config.messageDeleteTimer.command});
+  botmessage.delete({timeout: customTimeout ? customTimeout : config.messageDeleteTimer.bot});
  });
 
 }

@@ -71,7 +71,7 @@ exports.run = (client) => {
           .tz("America/New_York")
           .format("h:mm a");
 
-        if (client.channels.get(channel.id)) {
+        if (client.channels.cache.get(channel.id)) {
           let sortedTopicMonitors = [];
 
           channelTopic = channelTopic.sort(function (a, b) {
@@ -82,8 +82,7 @@ exports.run = (client) => {
             sortedTopicMonitors.push(monitor.text);
           });
 
-          client.channels
-            .get(channel.id)
+          client.channels.cache.get(channel.id)
            // .setTopic(`${sortedTopicMonitors.toString().replace(","," • ")} - ${lookupDate} EST; Next lookup at ${nextLookupDate} EST`)
             .setTopic(
               `${sortedTopicMonitors
@@ -106,7 +105,7 @@ exports.run = (client) => {
   }, exports.conf.interval);
 };
 
-// 6 minute intervals
+// 6 minute intervals 360000
 exports.conf = {
   name: "t2-monitor",
   description: "Tribes 2 server traffic monitor. Traffic reports set as channel topics",

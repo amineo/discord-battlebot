@@ -86,8 +86,8 @@ class BattleBot {
           };
 
           // cleanup messages after 5 minutes
-          message.delete(customTimeout ? customTimeout : config.messageDeleteTimer.command);
-          botmessage.delete(customTimeout ? customTimeout : config.messageDeleteTimer.bot);
+          message.delete({timeout: customTimeout ? customTimeout : config.messageDeleteTimer.command});
+          botmessage.delete({timeout: customTimeout ? customTimeout : config.messageDeleteTimer.bot});
         });
       
       }else{
