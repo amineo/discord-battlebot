@@ -22,6 +22,11 @@ const config = {
       command: "pub",
       ip: "34.135.175.94:28000",
       monitor: true,
+    },
+    {
+      command: "arena",
+      ip: "67.222.138.46:28000",
+      monitor: true,
     }
   ],
   channels: {
