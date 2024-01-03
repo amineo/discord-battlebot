@@ -4,22 +4,22 @@ exports.run = async (client, message, args) => {
 
   const cacheBust = new Date().getTime();
   const config = client.config;
-/*
-  let discordMsg = {
-    "embed": { 
-      "title": "Discord PUB",
-      "url": "https://stats.playt2.com",
-      "color": 7134102,
-      "image": {
-        "url": `https://t2-server.fly.dev/?t=${cacheBust}&padding=0`,
-      },
-      "timestamp": new Date(),
+  
+  /*
+    let discordMsg = {
+      "embed": { 
+        "title": "Discord PUB",
+        "url": "https://stats.playt2.com",
+        "color": 7134102,
+        "image": {
+          "url": `https://t2-server.fly.dev/?t=${cacheBust}&padding=0`,
+        },
+        "timestamp": new Date(),
+      }
     }
-  }
- await message.channel.send(discordMsg);
-*/
+  await message.channel.send(discordMsg);
+  */
 
-// const attachment = new MessageAttachement(`https://t2-server.fly.dev/${cacheBust}/serverName/24%2F7%20Tribes/padding/0/image.png`, `${cacheBust}.png`);
 
   const defaultServer = `24/7 Tribes`;
 
