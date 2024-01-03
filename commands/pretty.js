@@ -19,11 +19,15 @@ exports.run = async (client, message, args) => {
  await message.channel.send(discordMsg);
 */
 
+console.log(args.join(' '));
 
 // const attachment = new MessageAttachement(`https://t2-server.fly.dev/${cacheBust}/serverName/24%2F7%20Tribes/padding/0/image.png`, `${cacheBust}.png`);
 
+  const defaultServer = `24/7 Tribes`;
 
-const attachment = `https://t2-server.fly.dev/${cacheBust}/serverName/24%2F7%20Tribes/padding/0/image.png`;
+  const serverQueryName = args.length ? args.join(' ') : defaultServer;
+
+  const attachment = `https://t2-server.fly.dev/${cacheBust}/serverName/${encodeURIComponent(serverQueryName)}/padding/0/image.png`;
 
  await message.channel.send('', {files: [attachment]}).then( function(botmessage){
   let customTimeout;
