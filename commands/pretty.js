@@ -19,8 +19,6 @@ exports.run = async (client, message, args) => {
  await message.channel.send(discordMsg);
 */
 
-console.log(args.join(' '));
-
 // const attachment = new MessageAttachement(`https://t2-server.fly.dev/${cacheBust}/serverName/24%2F7%20Tribes/padding/0/image.png`, `${cacheBust}.png`);
 
   const defaultServer = `24/7 Tribes`;
