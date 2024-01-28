@@ -42,11 +42,6 @@ const config = {
         description: "Tribes 2 Discord: #chat",
       },
       {
-        id: "961658540223770704",
-        notifyID: "501753215151243265",
-        description: "Tribes 2 Discord: #chat",
-      },
-      {
         id: "1196191529140764763",
         notifyID: "501753215151243265",
         description: "24/7 Tribes Ladder: #chatroom",
