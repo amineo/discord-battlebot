@@ -21,12 +21,17 @@ exports.run = async (client, message, args) => {
   */
 
 
-  const defaultServer = `24/7 TRIBES`;
+  const defaultServer = `TRIBES`;
 
   const serverQueryName = args.length ? args.join(' ') : defaultServer;
 
   const attachment = `https://t2-server.fly.dev/${cacheBust}/serverName/${encodeURIComponent(serverQueryName)}/padding/0/image.png`;
+  
+  //const attachment = `https://t2-server.fly.dev?serverName=${encodeURIComponent(serverQueryName)}&padding=0&t=${cacheBust}`;
+  //console.log(attachment);
 
+
+ //await message.channel.send(attachment).then(function (botmessage) {
  await message.channel.send('', {files: [attachment]}).then( function(botmessage){
   let customTimeout;
 
