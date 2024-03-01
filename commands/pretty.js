@@ -21,7 +21,7 @@ exports.run = async (client, message, args) => {
   */
 
 
-  const defaultServer = `TRIBES`;
+  const defaultServer = `24/7 TRIBES`;
 
   const serverQueryName = args.length ? args.join(' ') : defaultServer;
 
