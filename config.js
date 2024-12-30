@@ -25,7 +25,7 @@ const config = {
     },
     {
       command: "arena",
-      ip: "67.222.138.46:28000",
+      ip: "45.32.207.211:28000",
       monitor: true,
     }
   ],
@@ -37,15 +37,10 @@ const config = {
         description: "BattleBot Dev Channel",
       },
       {
-        id: "281003732471382017",
-        notifyID: "501961027273883648",
-        description: "Tribes 2 Discord: #chat",
-      },
-      {
         id: "1196191529140764763",
         notifyID: "501753215151243265",
-        description: "24/7 Tribes Ladder: #chatroom",
-      },      
+        description: "24/7 Tribes: #chatroom",
+      },
     ],
     midair: [
       {
