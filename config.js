@@ -25,7 +25,7 @@ const config = {
     },
     {
       command: "arena",
-      ip: "45.32.207.211:28000",
+      ip: "35.188.49.207:28000",
       monitor: true,
     }
   ],
