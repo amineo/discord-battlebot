@@ -37,6 +37,11 @@ const config = {
         description: "BattleBot Dev Channel",
       },
       {
+        id: "281003732471382017",
+        notifyID: "501961027273883648",
+        description: "Tribes 2 Discord: #chat",
+      },      
+      {
         id: "1196191529140764763",
         notifyID: "501753215151243265",
         description: "24/7 Tribes: #chatroom",
