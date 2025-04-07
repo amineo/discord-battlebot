@@ -27,7 +27,12 @@ const config = {
       command: "arena",
       ip: "35.188.49.207:28000",
       monitor: true,
-    }
+    },
+    {
+      command: "cut",
+      ip: "67.222.138.14:28000",
+      monitor: true,
+    }    
   ],
   channels: {
     t2: [
@@ -46,6 +51,11 @@ const config = {
         notifyID: "501753215151243265",
         description: "24/7 Tribes: #chatroom",
       },
+      {
+        id: "1301952874103705712",
+        notifyID: "501753215151243265",
+        description: "The CUT: #the-cut",
+      },      
     ],
     midair: [
       {
