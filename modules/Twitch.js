@@ -63,7 +63,7 @@ class Twitch {
     
     async getT2Streams(){
         const streams = await this.twitch.getStreams({game_id: this.gameId});
-        console.log(streams);
+        //console.log(streams);
         return streams
     }
 }

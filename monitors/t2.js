@@ -52,8 +52,8 @@ exports.run = (client) => {
           channelTopic.push(topic);
         } else {
           let topic = {
-            players: 0,
-            text: `${server.command.toUpperCase()} [DOWN]`,
+            players: -1,
+            text: `${server.command.toUpperCase()} [▼]`,
           };
           channelTopic.push(topic);
           console.log("Having issues reaching server:" + server.command);
@@ -87,7 +87,7 @@ exports.run = (client) => {
             .setTopic(
               `${sortedTopicMonitors
                 .toString()
-                .replace(
+                .replaceAll(
                   ",",
                   " • "
                 )} ${twitchMessage} - ${lookupDate} EST; Next lookup at ${nextLookupDate} EST`
