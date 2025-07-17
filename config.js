@@ -25,12 +25,17 @@ const config = {
     },
     {
       command: "arena",
-      ip: "35.188.49.207:28000",
+      ip: "45.76.226.133:28008",
       monitor: true,
     },
     {
       command: "cut",
       ip: "144.202.48.59:28000",
+      monitor: true,
+    },
+    {
+      command: "lgc",
+      ip: "45.76.226.133:28000",
       monitor: true,
     }    
   ],
