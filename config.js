@@ -30,7 +30,7 @@ const config = {
     },
     {
       command: "cut",
-      ip: "144.202.48.59:28000",
+      ip: "45.76.226.133:28003",
       monitor: true,
     },
     {
