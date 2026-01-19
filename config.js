@@ -19,23 +19,13 @@ const config = {
   ownerID: "127396882908446720",
   t2ServerList: [
     {
-      command: "pub",
-      ip: "216.128.148.51:28000",
-      monitor: true,
-    },
-    {
-      command: "arena",
-      ip: "45.76.226.133:28008",
-      monitor: true,
-    },
-    {
       command: "cut",
-      ip: "45.76.226.133:28003",
+      ip: "216.128.148.51:28003",
       monitor: true,
     },
     {
       command: "lgc",
-      ip: "45.76.226.133:28000",
+      ip: "216.128.148.51:28000",
       monitor: true,
     }    
   ],
