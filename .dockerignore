@@ -1,0 +1,10 @@
+node_modules
+qstat
+.git
+storage/*.db
+storage/*.db.*
+*.log
+.DS_Store
+.vscode
+.elixir_ls
+dev.sh
