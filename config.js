@@ -27,6 +27,11 @@ const config = {
       command: "lgc",
       ip: "216.128.148.51:28000",
       monitor: true,
+    },
+    {
+      command: "dad",
+      ip: "66.42.121.64:28005",
+      monitor: true,
     }    
   ],
   channels: {
