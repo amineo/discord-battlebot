@@ -20,19 +20,29 @@ const config = {
   t2ServerList: [
     {
       command: "cut",
-      ip: "216.128.148.51:28003",
+      ip: "64.177.124.10:28003",
       monitor: true,
     },
     {
       command: "lgc",
-      ip: "216.128.148.51:28000",
+      ip: "64.177.124.10:28000",
       monitor: true,
     },
     {
       command: "dad",
       ip: "66.42.121.64:28005",
       monitor: true,
-    }    
+    },
+    {
+      command: "ski",
+      ip: "173.199.92.85:28000",
+      monitor: true,
+    },
+    {
+      command: "tr2",
+      ip: "64.177.124.10:28005",
+      monitor: true,
+    }        
   ],
   channels: {
     t2: [
