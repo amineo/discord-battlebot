@@ -1,9 +1,13 @@
 FROM node:16.13.2-bullseye
 
-# Build toolchain for qstat (GNU Autotools C project)
-RUN apt-get update && apt-get install -y --no-install-recommends \
-      build-essential autoconf automake git ca-certificates \
-    && rm -rf /var/lib/apt/lists/*
+# The qstat build toolchain (gcc, g++, make, autoconf, automake, libtool) plus
+# git and ca-certificates are already baked into node:16.13.2-bullseye via
+# buildpack-deps. Do NOT apt-get here: bullseye left Debian LTS in Aug 2026 and
+# its repo no longer serves packages, so any apt-get install fails.
+# This line only fails the build loudly if the base image ever loses a tool.
+RUN gcc --version >/dev/null && make --version >/dev/null \
+    && autoconf --version >/dev/null && automake --version >/dev/null \
+    && git --version
 
 WORKDIR /app
 
