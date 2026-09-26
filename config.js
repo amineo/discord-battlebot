@@ -36,13 +36,23 @@ const config = {
     {
       command: "ski",
       ip: "173.199.92.85:28000",
-      monitor: true,
+      monitor: false,
     },
     {
       command: "tr2",
       ip: "64.177.124.10:28005",
+      monitor: false,
+    },
+    {
+      command: "ts1",
+      ip: "45.63.71.224:28004",
       monitor: true,
-    }        
+    },
+    {
+      command: "ts2",
+      ip: "45.63.71.224:28003",
+      monitor: true,
+    },        
   ],
   channels: {
     t2: [

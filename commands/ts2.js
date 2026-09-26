@@ -22,12 +22,12 @@ exports.run = async (client, message, args) => {
 };
 
 exports.conf = {
-  enabled: false,
+  enabled: true,
   aliases: [],
 };
 
 exports.help = {
-  name: "tr2",
-  description: "Shows detailed server stats for the TR2 server",
-  usage: "tr2",
+  name: "ts2",
+  description: "Shows detailed server stats for the TS2 Tournament Server 2",
+  usage: "ts2",
 };
